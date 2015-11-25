@@ -1,0 +1,555 @@
+/* to prevent long press issue (long press on anchors will popup ios menu (to open it? or to copy the link blabla) */
+/* same as long press on the texts */
+body { -webkit-touch-callout: none !important; }
+a { -webkit-user-select: none !important; }
+
+/*----------*/
+.tim-common-input-right-icon {
+    position:absolute;
+    right:0.8em;
+    top:0.9em;
+}
+
+.tim-main-corner .ui-bar {
+    -webkit-border-top-left-radius: inherit;
+    border-top-left-radius: inherit;
+    -webkit-border-top-right-radius: inherit;
+    border-top-right-radius: inherit;
+}
+.tim-main-corner .ui-body {
+    border-top-width: 0;
+    -webkit-border-bottom-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    -webkit-border-bottom-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.common-background-overlay {
+    opacity: 0.5;
+    background-color: #f9f9f9;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: absolute;
+}
+
+.common-name-highlight {
+    color: #16a085;
+}
+.common-form-error {
+    color: #c1392b;
+}
+.tim-main-content {
+    padding: 0 0.5em;
+}
+
+.tim-menu-avatar-div {
+    width:100%;
+    text-align:center;
+    margin-top: 50px;
+}
+.tim-menu-avatar-img {
+    width: calc(100% / 2);
+    border-radius: 60px;
+    margin-top: 25px;
+}
+.tim-menu-collapsible-li {
+    border: medium none !important; padding:0
+}
+.tim-menu-collapsible-a {
+    padding: 11px 2.5em !important;
+}
+.tim-menu-collapsible-subdiv {
+    opacity:0.8;
+}
+.tim-border-bottom-1px-solid-eee {
+    border-bottom: 1px solid #fff !important;
+}
+
+/* -----panel scroll won't cause main content scrolling ---- */
+.ui-loader-default {
+    opacity: 0.5;
+}
+.ui-panel.ui-panel-open {
+    position:fixed;
+}
+.ui-panel-inner {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+/* -----end - panel scroll won't cause main content scrolling ---- */
+
+/*------common footer-------*/
+.common-footer > div > ul > li > a.common-footer-icon {
+    background-position: center 5px;
+    background-repeat: no-repeat;
+    background-size: 22px auto;
+    font-weight: normal;
+    padding: 35px 4px 5px 4px;
+}
+.common-footer > div > ul > li > a.common-footer-icon:hover {
+    background-position: center 5px;
+    background-repeat: no-repeat;
+    background-size: 22px auto;
+    font-weight: normal;
+    padding-top: 35px;
+    padding-bottom:5px;
+}
+.common-footer > div > ul > li > a.common-footer-home, .common-footer > div > ul > li > a.common-footer-home:hover {
+    background-image: url("../img/icon_home.png");
+}
+.common-footer > div > ul > li > a.common-footer-studentinfo, .common-footer > div > ul > li > a.common-footer-studentinfo:hover {
+    background-image: url("../img/icon_human.png");
+}
+.common-footer > div > ul > li > a.common-footer-schoolinfo, .common-footer > div > ul > li > a.common-footer-schoolinfo:hover {
+    background-image: url("../img/icon_file.png");
+}
+.common-footer > div > ul > li > a.common-footer-studentlife, .common-footer > div > ul > li > a.common-footer-studentlife:hover {
+    background-image: url("../img/icon_things.png");
+}
+.common-footer > div > ul > li > a.common-footer-advanceservice, .common-footer > div > ul > li > a.common-footer-advanceservice:hover {
+    background-image: url("../img/icon_computer.png");
+}
+.common-footer > div > ul > li > a:after {
+    /*background-color: transparent;*/
+}
+/*------end common footer-------*/
+
+/*-----------popup common dialog--------*/
+#popupCommonDialog {
+    z-index: 1999;
+    min-width: 100px;
+    max-width: 180px;
+    min-height: 50px;
+    background-color: #fff;
+    font-size: 0.9em;
+}
+#popupCommonDialog > h3 {
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+#popupCommonDialog > p {
+    margin: 10px 5px 40px 5px;
+}
+/*-----------end popup common dialog--------*/
+
+/*--------popupCommonTextPost--------*/
+#popupCommonTextPost {
+    background-color: #fff;
+    max-height: 400px;
+    overflow: auto;
+}
+#popupCommonTextPost > a.ui-icon-delete {
+    right:1px;
+    top:1px;
+}
+#popupCommonTextPost > p {
+    word-break: break-all;
+}
+/*--------end popupCommonTextPost--------*/
+
+/*--------popupAboutUs--------*/
+#popupAboutUs {
+    background-color: #fff;
+    max-height: 400px;
+    overflow: auto;
+    text-align: center;
+    padding: 3em 0.8em;
+}
+#popupAboutUs > h3 {
+    margin-bottom: 30px;
+}
+#popupAboutUs > a.ui-icon-delete {
+    right:1px;
+    top:1px;
+}
+#popupAboutUs > p {
+    word-break: break-all;
+}
+#popupAboutUs > p.aboutus-logo {
+    background-color:red;
+}
+#popupAboutUs > p.aboutus-logo > img {
+    width: 50%;
+}
+/*--------end popupAboutUs--------*/
+
+/*--------left menu------*/
+#panelMenu {
+    background-color: transparent;
+    background-image: url("../img/draw.png");
+}
+#panelMenu .common-panel-menu {
+    /*background-color: #3498db;*/
+}
+#panelMenu .common-panel-menu > li {
+    background-color: transparent;
+    color: white;
+}
+#panelMenu .common-panel-menu > li > a {
+    background-color: transparent;
+    color: white;
+}
+#panelMenu .common-panel-menu > li > a:after {
+    background-color: transparent;
+}
+#panelMenu .common-panel-menu > li:first-child {
+    background-color: transparent;
+    font-weight: bold;
+    /*background-image: url('../img/Paris.jpg');
+    background-size: 400px;
+    background-repeat: no-repeat;*/
+}
+#panelMenu .common-panel-menu > li:last-child {
+    margin-bottom: 130px;
+}
+/*----------end left menu---------*/
+
+/*---------messager----------*/
+#panelMessager {
+    padding: 0 0.3em;
+    border: 0 none;
+}
+#panelMessager > .ui-panel-inner {
+    top: 0;
+}
+#panelMessager div.ui-field-contain {
+    padding: 0.3em;
+}
+#panelMessager div.ui-field-contain > label {
+    display: none;
+}
+#panelMessager div.ui-field-contain > button {
+    font-size: 0.8em;
+}
+/*---------end messager----------*/
+
+
+/*-----index page-------*/
+#div_index_login {
+    padding: 0 0.3em;
+    text-align: center;
+}
+#div_index_login > h2 {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+#div_index_login > div.ui-field-contain {
+    padding: 0.3em;
+}
+#div_index_login > div.ui-field-contain > label {
+    display: none;
+}
+#div_index_login > div.ui-field-contain > button {
+    font-size: 0.8em;
+}
+/*-----end index page-------*/
+
+/*-----------home page-----------*/
+#h2_home_header_logo {
+    margin: 0 0.3em;
+    padding: 0.4em 0 0.1em;
+}
+#div_home_header_name_datetime {
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+    height: 22px;
+}
+#div_home_header_student_name {
+    display: inline-block;
+    font-size: 0.8em;
+    margin-left: 10px;
+    padding-top: 2px;
+}
+#div_home_header_datetime_text {
+    display: inline-block;
+    margin-left: calc(100% - 230px);
+    font-size: 0.8em;
+    padding-top: 2px;
+}
+#div_home_banner {
+    width:100%;
+}
+#img_home_banner {
+    width: 100%; height: auto;
+}
+#p_home_time_weather {
+    margin: 0 0 0 10px;
+    font-size: 0.8em;
+}
+#ul_home_msg_notice {
+    font-size:0.8em;
+    line-height:0.9em;
+}
+#ul_home_msg_notice > li {
+  height: 30px;
+}
+#ul_home_msg_notice > li:first-child {
+  height: auto;
+}
+#ul_home_msg_notice > li > a.a_home_msg_notice {
+    font-weight: normal;
+}
+#ul_home_msg_notice > li > a.a_home_msg_notice:after {
+    background: none;
+}
+#ul_home_activities > li {
+    border-bottom: 1px solid #16a085;
+}
+#ul_home_activities > li > a {
+    padding-top: 0;
+}
+#ul_home_activities > li > a:after{
+    background-color: #16a085;
+}
+#ul_home_activities > li > a > h2 {
+    margin-top: 0;
+}
+#ul_home_activities > li > a > img:first-child {
+    max-height: auto;
+}
+#ul_home_school_news {
+    font-size:0.8em;
+    line-height:0.9em;
+}
+#ul_home_school_news > li {
+  height: 30px;
+}
+#ul_home_school_news > li:first-child {
+  height: auto;
+}
+#ul_home_school_news > li > a.a_home_school_news {
+    font-weight: normal;
+}
+#ul_home_school_news > li > a.a_home_school_news:after {
+    background-color: #16a085;
+}
+/*-----------end home page-----------*/
+
+/*---------school info page-------*/
+#div_schoolinfo_navbar {
+    margin-top: 5px;
+}
+#ul_schoolinfo_navbar > li > a {
+    border-color: gray;
+}
+#ul_schoolinfo_teachers {
+    font-size:0.8em;
+    line-height:0.9em;
+}
+#ul_schoolinfo_teachers > li {
+    border: 1px solid #55d98d;
+    border-top: none;
+}
+#ul_schoolinfo_teachers > li > a > h2 {
+    margin-top: -0.5em;
+}
+#ul_schoolinfo_teachers > li > a > p.tim-schoolinfo-teachercomment {
+    font-size: 0.9em;
+}
+#ul_schoolinfo_teachers > li > a.tim-schoolinfo-teacher-msg {
+    background-color: #ddd;
+    background-color: rgba(0,0,0,0.1);
+    border: none;
+}
+#ul_schoolinfo_teachers > li > a.tim-schoolinfo-teacher-msg:after {
+    background-color: transparent;
+    background-image: url('../img/icon_msg_gray.png');
+    background-size: 1.4em;
+}
+#div_schoolinfo_teachers_messager {
+    padding: 0 0.3em;
+    width: 15em;
+}
+#div_schoolinfo_teachers_messager > div.ui-field-contain {
+    padding: 0.3em;
+}
+#div_schoolinfo_teachers_messager > div.ui-field-contain > label {
+    display: none;
+}
+#div_schoolinfo_teachers_messager > div.ui-field-contain > button {
+    font-size: 0.8em;
+}
+
+#ul_schoolinfo_aroundschool > li {
+    border-bottom: 1px solid #16a085;
+}
+#ul_schoolinfo_aroundschool > li > a {
+    padding-top: 0;
+}
+#ul_schoolinfo_aroundschool > li > a:after{
+    background-color: #16a085;
+}
+#ul_schoolinfo_aroundschool > li > a > h2 {
+    margin-top: 0;
+}
+#ul_schoolinfo_aroundschool > li > a > img:first-child {
+    max-height: 10em;
+}
+/*---------end school info page-------*/
+
+/*----------student live page--------*/
+#ul_studentinfo_studentinfo {
+    font-size: 0.8em;
+    line-height: 1em;
+    margin-top: 10px;
+    border-top: 1px solid #55d98d;
+    border-bottom: 1px solid #55d98d;
+    padding-left: 10px;
+    border-radius: 0;
+}
+#ul_studentinfo_studentinfo > li {
+    background: none;
+}
+#ul_studentinfo_studentinfo > li > #img_studentinfo_avatar {
+    border-radius: 60px;
+    margin-top: 10px;
+}
+#ul_studentinfo_studentinfo > li > h2 {
+    margin: 0;
+}
+#ul_studentinfo_studentinfo > li > p {
+    margin: 3px 0;
+}
+#div_studentlife_gary {
+    margin-top: 5px;
+    font-size: 0.8em;
+    min-height: 145px;
+}
+#div_studentlife_gary > img {
+    float: left;
+    margin-right: 5px;
+}
+/*----------end student live page--------*/
+
+/*--------student info page-------*/
+#div_studentinfo_img_gallery .ui-bar {
+    padding: 0.3em 1em;
+}
+#div_studentinfo_img_gallery .ui-body {
+    padding: 0.2em;
+}
+#div_studentinfo_grades_list {
+    margin-top: 10px;
+}
+#div_studentinfo_grades_list > .ui-body {
+    padding: 6px 5px;
+}
+#div_studentinfo_grades_list > .ui-body > fieldset {
+    margin-top: 0;
+}
+#div_studentinfo_grades_list > .ui-body > fieldset legend {
+    font-size: 0.85em;
+}
+#table_studentinfo_grades {
+    border-spacing: 0;
+    width: 100%;
+}
+#table_studentinfo_grades th, #table_studentinfo_grades td {
+    border: 1px solid gray;
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 24%;
+}
+#table_studentinfo_grades th {
+    font-size: 0.85em;
+}
+#table_studentinfo_grades td {
+    font-size: 0.75em;
+}
+/*--------end student info page-------*/
+
+/*-----------advance service page------------*/
+#div_advanceservice_buttongroup {
+    width:100%;
+    margin-top:-2px;
+    text-align: center;
+    border: 1px solid #55d98d;
+}
+#div_advanceservice_buttongroup > div.ui-controlgroup {
+    margin: 0;
+}
+#div_advanceservice_buttongroup .tim-advanceservice-icon {
+    background-position: center 5px;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    font-size: 0.65em;
+    font-weight: normal;
+    width: 50px;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    margin-top: 2px;
+}
+#div_advanceservice_buttongroup .tim-advanceservice-icon:after {
+    background-color: transparent;
+}
+#div_advanceservice_buttongroup #a_advanceservice_plane {
+    background-image: url("../img/icon_plane_gray.png");
+}
+#div_advanceservice_buttongroup #a_advanceservice_invitation {
+    background-image: url("../img/icon_invitation_gray.png");
+}
+#div_advanceservice_buttongroup #a_advanceservice_application {
+    background-image: url("../img/icon_application_gray.png");
+}
+#div_advanceservice_buttongroup #a_advanceservice_message {
+    background-image: url("../img/icon_message_gray.png");
+}
+#ul_advanceservice_list {
+    font-size: 0.8em;
+}
+#ul_advanceservice_list > li > a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #16a085;
+}
+#ul_advanceservice_list > li > a:after {
+    background: none
+}
+
+#div_advanceservice_pickup,
+#div_advanceservice_invitation,
+#div_advanceservice_application {
+    padding: 0 0.3em;
+    width: 15em;
+    max-height: 30em;
+    overflow: auto;
+}
+#div_advanceservice_pickup > div.ui-field-contain,
+#div_advanceservice_invitation > div.ui-field-contain,
+#div_advanceservice_application > div.ui-field-contain {
+    padding: 0.3em;
+}
+#div_advanceservice_pickup > div.ui-field-contain > label,
+#div_advanceservice_invitation > div.ui-field-contain > label,
+#div_advanceservice_application > div.ui-field-contain > label {
+    display: none;
+}
+#div_advanceservice_pickup > div.ui-field-contain > button,
+#div_advanceservice_invitation > div.ui-field-contain > button,
+#div_advanceservice_application > div.ui-field-contain > button {
+    font-size: 0.8em;
+}
+/*-----------end advance service page------------*/
+
+/*-----common post page--------*/
+#div_commonpost_maincontent > h3 {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+#div_commonpost_maincontent > div.ui-body {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+}
+#div_commonpost_maincontent > div.ui-body > p > img {
+    width: 100%;
+}
+/*-----end common post page--------*/

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>便捷服务</title>
+    </head>
+    <body>
+        <div data-role="page" id="pgAdvanceService">
+            <div data-role="header" data-theme="d" data-position="fixed" data-tap-toggle="false">
+                <a href="#panelMenu" data-iconpos="notext" data-role="button" data-icon="flat-menu" title="Menu">Menu</a>
+                <!--<h2> <img src="img/test.png" height="35" /> </h2>-->
+                <h2 id="h2_home_header_logo"> <img src="img/soagoajiaxiaotong.png" height="30" /> </h2>
+                <a href="#panelMessager" data-iconpos="notext" data-role="button" data-icon="flat-bubble" title="New">New</a>
+                <div data-position="fixed" id="div_home_header_name_datetime" style="display:none;">
+                    <div id="div_home_header_student_name">学生: 艾沐臻</div>
+                    <div id="div_home_header_datetime_text">2015-04-10 第6教学周</div>
+                </div>
+            </div>
+            <div role="main" data-role="content">
+                <div id="div_home_banner">
+                    <img id="img_home_banner" src="img/ilt-header3b.jpg" />
+                </div>
+
+                <div id="div_advanceservice_buttongroup">
+                    <div data-role="controlgroup" data-type="horizontal" data-theme="c">
+                        <a id="a_advanceservice_plane" href="#div_advanceservice_pickup" data-rel="popup" data-position-to="window" class="ui-btn ui-btn-icon-top tim-advanceservice-icon">接机服务</a>
+                        <a id="a_advanceservice_invitation" href="#div_advanceservice_invitation" data-rel="popup" data-position-to="window" class="ui-btn ui-btn-icon-top tim-advanceservice-icon">邀请函</a>
+                        <a id="a_advanceservice_application" href="#div_advanceservice_application" data-rel="popup" data-position-to="window" class="ui-btn ui-btn-icon-top tim-advanceservice-icon">申请指导</a>
+                        <a id="a_advanceservice_message" href="#panelMessager" class="ui-btn ui-btn-icon-top tim-advanceservice-icon">发送留言</a>
+                    </div>
+                </div>
+                <div class="tim-main-content">
+                    <ul id="ul_advanceservice_list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="b">
+                        <li data-role="list-divider">我的服务</li>
+                        <li>
+                            <a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_msg_notice">
+                                <h4>-接机服务 - 2015-09-10</h4>
+                                <p>您的接机服务已经确认, 届时会有专人在机场接机.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_msg_notice">
+                                <h4>-邀请函 - 2015-09-10</h4>
+                                <p>申请已发送, 后台管理员处理中.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_msg_notice">
+                                <h4>-留言 - 化学老师 - 2015-04-28</h4>
+                                <p>暂未回复, 请耐心等待.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_msg_notice">
+                                <h4>-留言 - 管理员 - 2015-04-10</h4>
+                                <p>[回复]: 您所反映的问题已经反馈到美方学校.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="common-footer" data-theme="d" data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="home.html" class="common-footer-icon common-footer-home">首页</a></li>
+                        <li><a href="studentinfo.html" class="common-footer-icon common-footer-studentinfo">学生信息</a></li>
+                        <li><a href="schoolinfo.html" class="common-footer-icon common-footer-schoolinfo">学校情况</a></li>
+                        <li><a href="studentlife.html" class="common-footer-icon common-footer-studentlife">生活记事</a></li>
+                        <li><a href="advanceservice.html" class="common-footer-icon common-footer-advanceservice">增值服务</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- popup plane (pick_up) -->
+            <div id="div_advanceservice_pickup" data-role="popup" data-overlay-theme="c">
+                <h3>请填写接机信息</h3>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_pickup_name">乘机人姓名</label>
+                    <input type="text" data-mini="true" placeholder="乘机人姓名" id="txt_advanceservice_pickup_name" />
+                    <img src="img/icon_man_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_pickup_flight">航班号</label>
+                    <input type="text" data-mini="true" placeholder="航班号" id="txt_advanceservice_pickup_flight" />
+                    <img src="img/icon_plane_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_pickup_date">到达日期</label>
+                    <input type="text" data-mini="true" placeholder="到达日期" id="txt_advanceservice_pickup_date">
+                    <img src="img/icon_calendar_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_pickup_phone">联系电话</label>
+                    <input type="text" data-mini="true" placeholder="联系电话" id="txt_advanceservice_pickup_phone" />
+                    <img src="img/icon_phone_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <button data-theme="b" class="ui-btn ui-mini ui-corner-all">提交</button>
+                </div>
+            </div>
+
+            <!-- popup invitation -->
+            <div id="div_advanceservice_invitation" data-role="popup" data-overlay-theme="c">
+                <h3>请填写如下信息</h3>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_invitation_name">申请人姓名</label>
+                    <input type="text" data-mini="true" placeholder="申请人姓名" id="txt_advanceservice_invitation_name" />
+                    <img src="img/icon_man_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_invitation_idnum">身份证号码</label>
+                    <input type="text" data-mini="true" placeholder="身份证号码" id="txt_advanceservice_invitation_idnum" />
+                    <img src="img/icon_card_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_invitation_passport">护照号码</label>
+                    <input type="text" data-mini="true" placeholder="护照号码" id="txt_advanceservice_invitation_passport">
+                    <img src="img/icon_page_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_invitation_date">预计到达日期</label>
+                    <input type="text" data-mini="true" placeholder="预计到达日期" id="txt_advanceservice_invitation_date" />
+                    <img src="img/icon_calendar_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_invitation_purpose">目的</label>
+                    <input type="text" data-mini="true" placeholder="目的" id="txt_advanceservice_invitation_purpose" />
+                    <img src="img/icon_papers_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_invitation_stay">停留时间</label>
+                    <input type="text" data-mini="true" placeholder="停留时间" id="txt_advanceservice_invitation_stay" />
+                    <img src="img/icon_chart_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_invitation_phone">联系电话</label>
+                    <input type="text" data-mini="true" placeholder="联系电话" id="txt_advanceservice_invitation_phone" />
+                    <img src="img/icon_phone_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_invitation_email">电子邮箱</label>
+                    <input type="text" data-mini="true" placeholder="电子邮箱" id="txt_advanceservice_invitation_email" />
+                    <img src="img/icon_mail_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <button data-theme="b" class="ui-btn ui-mini ui-corner-all">提交</button>
+                </div>
+            </div>
+
+            <!-- popup application -->
+            <div id="div_advanceservice_application" data-role="popup" data-overlay-theme="c">
+                <h3>请填写如下信息</h3>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_application_name">家长姓名</label>
+                    <input type="text" data-mini="true" placeholder="家长姓名" id="txt_advanceservice_invitation_name" />
+                    <img src="img/icon_man_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_application_univercities">目标大学</label>
+                    <input type="text" data-mini="true" placeholder="目标大学(最多三所)" id="txt_advanceservice_application_univercities" />
+                    <img src="img/icon_papers_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_application_type">服务类型</label>
+                    <input type="text" data-mini="true" placeholder="服务类型" id="txt_advanceservice_application_type">
+                    <img src="img/icon_page_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_application_phone">联系电话</label>
+                    <input type="text" data-mini="true" placeholder="联系电话" id="txt_advanceservice_application_phone" />
+                    <img src="img/icon_phone_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_advanceservice_application_email">电子邮箱</label>
+                    <input type="text" data-mini="true" placeholder="电子邮箱" id="txt_advanceservice_application_email" />
+                    <img src="img/icon_mail_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <button data-theme="b" class="ui-btn ui-mini ui-corner-all">提交</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

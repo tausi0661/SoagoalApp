@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        <title>Home Page</title>
+    </head>
+    <body>
+        <div data-role="page" id="pgHome">
+            <div data-role="header" data-theme="d" data-position="fixed" data-tap-toggle="false">
+                <a href="#panelMenu" data-iconpos="notext" data-role="button" data-icon="flat-menu" title="Menu">Menu</a>
+                <!--<h2> <img src="img/test.png" height="35" /> </h2>-->
+                <h2 id="h2_home_header_logo"> <img src="img/soagoajiaxiaotong.png" height="30" /> </h2>
+                <a href="#panelMessager" data-iconpos="notext" data-role="button" data-icon="flat-bubble" title="New">New</a>
+                <div data-position="fixed" id="div_home_header_name_datetime">
+                    <div id="div_home_header_student_name">学生: 艾沐臻</div>
+                    <div id="div_home_header_datetime_text">2015-04-10 第6教学周</div>
+                </div>
+            </div>
+            <div role="main" data-role="content">
+                <div id="div_home_banner">
+                    <img id="img_home_banner" src="img/bigbanner.jpg" />
+                </div>
+                <div class="tim-top-time-weather">
+                    <p id="p_home_time_weather">当地时间: <span id="span_home_US_time"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当地天气: 阴转晴 12&#176;C</p>
+                </div>
+                <div>
+                    <button id="btn_test_here" data-theme="b" class="ui-btn ui-mini ui-corner-all">提交</button>
+                </div>
+
+                <!-- datebox example -->
+                <div style="display:none;">
+                    <input type="text" data-role="datebox" data-options='{"mode":"slidebox"}' data-mini="true" placeholder="到达日期" id="txt_advanceservice_pickup_date">
+                </div>
+
+                <div class="tim-main-content">
+
+                    <ul id="ul_home_msg_notice" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="b">
+                        <li data-role="list-divider">信息与公告</li>
+                        <li><a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_msg_notice">-学校在Memorial Day(阵亡将士纪念日)放假3天</a></li>
+                        <li><a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_msg_notice">-5.1将举行中国留学生聚会, <span class="common-name-highlight">艾沐臻</span>会有独唱表演.</a></li>
+                        <li><a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_msg_notice">-10年级将于5.10参观工业博物馆</a></li>
+                    </ul>
+
+                    <ul id="ul_home_activities" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="b" style="font-size:0.8em; line-height:0.9em;">
+                        <li data-role="list-divider">学习与活动</li>
+                        <li>
+                            <a href="commonpost.html">
+                                <img src="img/home_1.jpg" />
+                                <h2>11年级参加当地户外学生运动会</h2>
+                                <p><span class="common-name-highlight">艾沐臻</span>参加了长跑和跳远两项比赛, 分别取得第二和第五名.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="commonpost.html">
+                                <img src="img/home_2.jpg" />
+                                <h2>9年级本周开始开设物理实验课程</h2>
+                                <p>照片为<span class="common-name-highlight">艾沐臻</span>在物理实验课上进行实验.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="commonpost.html">
+                                <img src="img/home_3.png" />
+                                <h2>05-01 - 05-10 各学科成绩及评语</h2>
+                                <p><span class="common-name-highlight">艾沐臻</span>本周学习较前一阶段积极性提高, 但英语口语还有待于提高.</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul id="ul_home_school_news" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="b">
+                        <li data-role="list-divider">学校及当地新闻</li>
+                        <li><a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_school_news">-达拉斯市市长04-29日来我校参观访问, 并与学生座谈.</a></li>
+                        <li><a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_school_news">-美国国务院4月13日公布将2015年5月1日作为首个EB-5投资移民签证排期的执行时点.</a></li>
+                        <li><a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_school_news">-美国航空5月8日开通北京至达拉斯航线, 由波音777-200执飞</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="common-footer" data-theme="d" data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="home.html" class="common-footer-icon common-footer-home">首页</a></li>
+                        <li><a href="studentinfo.html" class="common-footer-icon common-footer-studentinfo">学生信息</a></li>
+                        <li><a href="schoolinfo.html" class="common-footer-icon common-footer-schoolinfo">学校情况</a></li>
+                        <li><a href="studentlife.html" class="common-footer-icon common-footer-studentlife">生活记事</a></li>
+                        <li><a href="advanceservice.html" class="common-footer-icon common-footer-advanceservice">增值服务</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

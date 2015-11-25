@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>学校信息</title>
+    </head>
+    <body>
+        <div data-role="page" id="pgSchoolInfo">
+            <div data-theme="d" data-role="header" data-position="fixed" data-tap-toggle="false">
+                <a href="#panelMenu" data-iconpos="notext" data-role="button" data-icon="flat-menu" title="Menu">Menu</a>
+                <!--<h2> <img src="img/test.png" height="35" /> </h2>-->
+                <h2 id="h2_home_header_logo"> <img src="img/soagoajiaxiaotong.png" height="30" /> </h2>
+                <a href="#panelMessager" data-iconpos="notext" data-role="button" data-icon="flat-bubble" title="New">New</a>
+                <div data-position="fixed" id="div_home_header_name_datetime" style="display:none;">
+                    <div id="div_home_header_student_name">学生: 艾沐臻</div>
+                    <div id="div_home_header_datetime_text">2015-04-10 第6教学周</div>
+                </div>
+            </div>
+            <div role="main" data-role="content">
+                <div id="div_schoolinfo_navbar" data-role="navbar" data-grid="b">
+                    <ul id="ul_schoolinfo_navbar">
+                        <li><a href="#" class="ui-btn-active" data-theme="f">教师信息</a></li>
+                        <li><a href="#" data-theme="f">学校简介</a></li>
+                        <li><a href="#" data-theme="f">学校周边</a></li>
+                    </ul>
+                </div>
+                <div id="div_schoolinfo_teachers" class="tim-main-content">
+                    <ul id="ul_schoolinfo_teachers" data-role="listview" data-split-icon="timothy-icon" data-split-theme="b" data-theme="c" data-inset="true">
+                        <li data-role="list-divider" data-theme="b">教师列表</li>
+                        <li>
+                            <a href="#">
+                                <img src="img/teacher_elise.jpg" />
+                                <h2>Elise Longley - 化学</h2>
+                                <p>德州农工大学 学士 7-12年级科学, 特殊教育EC-12</p>
+                                <p class="tim-schoolinfo-teachercomment">近期评语: 最近该学生上课容易走神</p>
+                                <a class="tim-schoolinfo-teacher-msg" href="#div_schoolinfo_teachers_messager" data-rel="popup" data-position-to="window" data-transition="pop">ccc</a>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div id="div_schoolinfo_school_intro" class="tim-main-content" style="display:none;">
+                    <div style="width:100%;"><img style="float:left; width:100%" src="img/intro_iltexas.png" /></div>
+                </div>
+
+                <div id="div_schoolinfo_around_school" class="tim-main-content" style="display:none">
+                    <ul id="ul_schoolinfo_aroundschool" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="b" style="font-size:0.8em; line-height:0.9em;">
+                        <li data-role="list-divider">学校周边</li>
+                        <li>
+                            <a href="schoolinfo1.html">
+                                <img src="img/texas.png" />
+                                <h2>德克萨斯州概况</h2>
+                                <p>德克萨斯州是美国人口，面积和经济的第二大洲，位于美国南部的中心地带。南部与墨西哥接壤。其首府是奥斯汀，最大的城市是休斯敦。</p>
+                                <p>德州天气：夏季炎热，温度在32℃－38℃左右。冬天缓和，南部温度在4－10℃。空气质量较好。</p>
+                                <p>德州拥有以下知名学府：<br/>
+- 莱斯大学（美国南方最高学府，TOP20）<br/>
+- 德州大学奥斯汀分校（常年综排前50，商学院排名全美前三）<br/>
+- 德州农工大学（USNEWS综排68）<br/>
+- 南卫理公会大学（全美最美校园之一）<br/>
+- 贝勒医学院（历史悠久，全美最优秀的医学院代表）</p>
+                                <p>德州工业，农业及对外贸易发达，是美国就业率最高，失业率最低的州。
+很多世界500强企业将总部设在德州，例如：
+   美国航空公司            埃克森美孚             壳牌石油
+    中石油北美总部        戴尔                       华为北美总部
+    TOYOTA北美总部</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="schoolinfo2.html">
+                                <img src="img/ilt-logo.png" />
+                                <h2>ILTexas优势</h2>
+                                <p><b>英语，中文和西班牙语教学</b></p>
+                                <p>在美国乃至世界上，德克萨斯州拥有强大的经济实力。墨西哥，加拿大和中国是我们的前三个主要的出口国家，中国已跃居世界第二大经济体。为了保持德克萨斯州和美国的领先地位，我们为学生提供一个独特的教育机会，以确认他们能讲流行的英语，西班牙语和汉语。</p>
+                                <p><b>升学优势Top 10% rule</b></p>
+                                <p>德州国际领袖学校毕业班年级排名前10%的学生可以被德州所有公立学校自动录取，不需要托福成绩和SAT成绩。<br>
+                                在德州国际领袖学校就读的中国学生，只要在校学习，必要时申请包括UT Austin在内的德州公立大学是享受“美国公民待遇”：即自动享受和州内学生一样的学费（州内学费约为国际学生学费的1/4-1/3，2014年德州大学奥斯汀分校州内学费为$9,816，国际学生学费$34,860）。</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="common-footer" data-theme="d" data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="home.html" class="common-footer-icon common-footer-home">首页</a></li>
+                        <li><a href="studentinfo.html" class="common-footer-icon common-footer-studentinfo">学生信息</a></li>
+                        <li><a href="schoolinfo.html" class="common-footer-icon common-footer-schoolinfo">学校情况</a></li>
+                        <li><a href="studentlife.html" class="common-footer-icon common-footer-studentlife">生活记事</a></li>
+                        <li><a href="advanceservice.html" class="common-footer-icon common-footer-advanceservice">增值服务</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- popup teacher messager -->
+            <div id="div_schoolinfo_teachers_messager" data-role="popup" data-overlay-theme="c">
+                <h3>请填写留言信息</h3>
+                <div class="ui-field-contain">
+                    <label for="sel_schoolinfo_teachers_object" class="ui-hidden-accessable">给谁留言</label>
+                    <select data-theme="c" id="sel_schoolinfo_teachers_object" name="sel_schoolinfo_teachers_object" data-iconpos="left" data-mini="true" >
+                        <option value="0">请选择留言教师</option>
+                        <option value="1" selected="selected">化学 - Elise Longley</option>
+                        <option value="2">化学2 - Elise Longley</option>
+                        <option value="3">化学3 - Elise Longley</option>
+                    </select>
+                    <!-- <input type="text" data-mini="true" placeholder="请选择留言对象" id="txt_advanceservice_pickup_name" /> -->
+                    <img src="img/icon_man_gray.png" width="15" class="tim-common-input-right-icon" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="txt_schoolinfo_teachers_content">留言内容</label>
+                    <textarea data-mini="true" placeholder="留言内容" id="txt_schoolinfo_teachers_content"></textarea>
+                    <img src="img/icon_page_gray.png" width="15" class="tim-common-input-right-icon"/>
+                </div>
+                <div class="ui-field-contain">
+                    <button data-theme="b" class="ui-btn ui-mini ui-corner-all">提交</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

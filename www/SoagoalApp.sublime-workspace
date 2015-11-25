@@ -1,0 +1,352 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"jqp",
+				"jqPanelMessager"
+			],
+			[
+				"n",
+				"transparent"
+			],
+			[
+				"back",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "schoolinfo.html",
+			"settings":
+			{
+				"buffer_size": 5642,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/schoolinfo.js",
+			"settings":
+			{
+				"buffer_size": 1988,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/indexpage.js",
+			"settings":
+			{
+				"buffer_size": 1464,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 177.0,
+		"selected_items":
+		[
+			[
+				"syn html",
+				"Set Syntax: HTML"
+			],
+			[
+				"remove	",
+				"Emmet: Remove Tag"
+			],
+			[
+				"sy html",
+				"Set Syntax: HTML"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/js/studentinfo.js",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/js/schoolinfo.js",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/studentlife.html",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/studentinfo.html",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/js/indexpage.js",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/home.html",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/advanceservice.html",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/commonpost.html",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/schoolinfo.html",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/index.html",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/css/index.css",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/js/index.js",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/js/homepage.js",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/js/studentlife.js",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/css/jquery.mobile.flatui.css",
+		"/C/Users/tausi_000/Desktop/test.html",
+		"/F/workstation/sites/soagoal/app/SoagoalApp/www/js/advanceservice.js",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/index.html",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/css/index.css",
+		"/C/Users/tausi_000/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/js/index.js",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/schoolinfo.html",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/js/schoolinfo.js",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/studentlife.html",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/advanceservice.html",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/studentinfo.html",
+		"/E/桌面2/test1.html",
+		"/E/桌面2/test.html",
+		"/F/workstation/sites/soagoal/app/phonegaphello/www/schoollife.html",
+		"/C/Users/tausi_000/AppData/Roaming/Sublime Text 2/Packages/Emmet/Default (Windows).sublime-keymap",
+		"/C/Users/tausi_000/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/F/work station/timothy/doc/amazon payment/LoginandPaywithAmazon-dotnet-1.0.12_US/AmazonPaymentsAdvancedSDK-dotnet-1.0.12_US/src/OffAmazonPaymentsIPN.Samples/IpnHandler.aspx.cs",
+		"/F/work station/timothy/doc/amazon payment/LoginandPaywithAmazon-dotnet-1.0.12_US/AmazonPaymentsAdvancedSDK-dotnet-1.0.12_US/src/OffAmazonPaymentsServiceSampleLibrary/OffAmazonPaymentsServiceSampleLibrary/SetOrderReferenceDetailsSample.cs",
+		"/F/work station/timothy/doc/amazon payment/LoginandPaywithAmazon-dotnet-1.0.12_US/AmazonPaymentsAdvancedSDK-dotnet-1.0.12_US/src/OffAmazonPaymentsServiceSampleLibrary/OffAmazonPaymentsServiceSampleLibrary/ConfirmOrderReferenceSample.cs",
+		"/F/work station/timothy/doc/amazon payment/LoginandPaywithAmazon-dotnet-1.0.12_US/AmazonPaymentsAdvancedSDK-dotnet-1.0.12_US/src/OffAmazonPaymentsServiceSampleLibrary/OffAmazonPaymentsServiceSampleLibrary/GetOrderReferenceDetailsSample.cs",
+		"/F/work station/timothy/doc/amazon payment/LoginandPaywithAmazon-dotnet-1.0.12_US/AmazonPaymentsAdvancedSDK-dotnet-1.0.12_US/src/OffAmazonPaymentsServiceSampleLibrary/OffAmazonPaymentsServiceSampleLibrary/AuthorizeSample.cs",
+		"/F/work station/timothy/doc/amazon payment/LoginandPaywithAmazon-dotnet-1.0.12_US/AmazonPaymentsAdvancedSDK-dotnet-1.0.12_US/src/OffAmazonPaymentsIPN.Samples/index.aspx.cs"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"popupCommonDialog",
+			"clearFormError",
+			"div_advanceservice_invitation",
+			"ilt-header3b",
+			">\n",
+			"tim-main-content",
+			"wrap",
+			">\n",
+			"package"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "schoolinfo.html",
+					"settings":
+					{
+						"buffer_size": 5642,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5139,
+								5170
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 969.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/schoolinfo.js",
+					"settings":
+					{
+						"buffer_size": 1988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								852,
+								852
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 513.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/indexpage.js",
+					"settings":
+					{
+						"buffer_size": 1464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1398,
+								1398
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 285.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"flatcss",
+				"css/jquery.mobile.flatui.css"
+			],
+			[
+				"indecss",
+				"css/index.css"
+			],
+			[
+				"indexjs",
+				"js/index.js"
+			],
+			[
+				".css",
+				"css/index.css"
+			],
+			[
+				"index",
+				"js/index.js"
+			],
+			[
+				"ind",
+				"index.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

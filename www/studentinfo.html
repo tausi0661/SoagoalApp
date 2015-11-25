@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>学生信息</title>
+    </head>
+    <body>
+        <div data-role="page" id="pgStudentInfo">
+            <div data-role="header" data-theme="d" data-position="fixed" data-tap-toggle="false">
+                <a href="#panelMenu" data-iconpos="notext" data-role="button" data-icon="flat-menu" title="Menu">Menu</a>
+                <!--<h2> <img src="img/test.png" height="35" /> </h2>-->
+                <h2 id="h2_home_header_logo"> <img src="img/soagoajiaxiaotong.png" height="30" /> </h2>
+                <a href="#panelMessager" data-iconpos="notext" data-role="button" data-icon="flat-bubble" title="New">New</a>
+                <div data-position="fixed" id="div_home_header_name_datetime" style="display:none;">
+                    <div id="div_home_header_student_name">学生: 艾沐臻</div>
+                    <div id="div_home_header_datetime_text">2015-04-10 第6教学周</div>
+                </div>
+            </div>
+            <div role="main" data-role="content">
+                <ul id="ul_studentinfo_studentinfo" data-role="listview" data-split-icon="flat-bubble" data-split-theme="g" data-theme="c" data-inset="true">
+                    <li>
+                        <img id="img_studentinfo_avatar" src="img/Avatar.jpg" />
+                        <h2>艾沐臻 - Alexander</h2>
+                        <p>入学时间: 2015年春季</p>
+                        <p>自我评价: 革命尚未成功, 同志仍需努力!</p>
+                        <p>管理员评价: 最近学习认真, 动手能力还有待提升.</p>
+                    </li>
+                </ul>
+
+                <div id="div_studentinfo_img_gallery" class="tim-main-content ui-corner-all tim-main-corner">
+                    <div class="ui-bar ui-bar-b">
+                        <h5>活动照片墙</h5>
+                    </div>
+                    <div class="ui-body ui-body-b" style="overflow-x:auto;">
+                        <div style="width:1000px;">
+                            <a href="#popupParis" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="img/paris.jpg" alt="Paris, France" style="height:77px;"></a>
+                            <a href="#popupSydney" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="img/sydney.jpg" alt="Sydney, Australia" style="height:77px;"></a>
+                            <a href="#popupNYC" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="img/newyork.jpg" alt="New York, USA" style="height:77px;"></a>
+                            <a href="#popupRun" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="img/photo-run.jpeg" alt="New York, USA" style="height:77px;"></a>
+
+                            <div data-role="popup" id="popupParis" data-overlay-theme="g" data-theme="b" data-corners="false">
+                                <h4>参观摄影展</h4>
+                                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="img/paris.jpg" style="max-height:512px;" alt="Paris, France">
+                            </div>
+                            <div data-role="popup" id="popupSydney" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                <h4>参观摄影展</h4>
+                                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="img/sydney.jpg" style="max-height:512px;" alt="Sydney, Australia">
+                            </div>
+                            <div data-role="popup" id="popupNYC" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                <h4>参观摄影展</h4>
+                                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="img/newyork.jpg" style="max-height:512px;" alt="New York, USA">
+                            </div>
+                            <div data-role="popup" id="popupRun" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                <h4>参观摄影展</h4>
+                                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="img/photo-run.jpeg" style="max-height:512px;" alt="New York, USA">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_studentinfo_grades_list" class="tim-main-content ui-corner-all tim-main-corner">
+                    <div class="ui-bar ui-bar-b">
+                        <h5>历史成绩单</h5>
+                    </div>
+                    <div class="ui-body ui-body-b" style="overflow-x:auto;">
+                        <fieldset data-theme="d" data-role="controlgroup" data-type="horizontal" data-mini="true">
+                            <legend>选择年级与学期查询:</legend>
+                            <label for="sel_studentinfo_grade">选择年级</label>
+                            <select name="sel_studentinfo_grade" id="sel_studentinfo_grade">
+                                <option value="#">选择年级</option>
+                                <option value="#">9年级</option>
+                                <option value="#">10年级</option>
+                                <option value="#">11年级</option>
+                            </select>
+                            <label for="sel_studentinfo_term">选择学期</label>
+                            <select name="sel_studentinfo_term" id="sel_studentinfo_term">
+                                <option value="#">选择学期</option>
+                                <option value="#">第一学期</option>
+                                <option value="#">第二学期</option>
+                            </select>
+                        </fieldset>
+                        <table id="table_studentinfo_grades">
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">Algebra 2 with Trigonometry</th>
+                                    <th colspan="2">English Level 9</th>
+                                </tr>
+                                <tr>
+                                    <td>Score: 91%</td><td>Grade: A-</td>
+                                    <td>Score: 86%</td><td>Grade: B+</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Introduction to Art</th>
+                                    <th colspan="2">Freshman Focus</th>
+                                </tr>
+                                <tr>
+                                    <td>Score: 91%</td><td>Grade: A-</td>
+                                    <td>Score: 86%</td><td>Grade: B+</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Biology</th>
+                                    <th colspan="2">Limited English Proficiency</th>
+                                </tr>
+                                <tr>
+                                    <td>Score: 91%</td><td>Grade: A-</td>
+                                    <td>Score: 86%</td><td>Grade: B+</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Exploratory Languages</th>
+                                    <th colspan="2">Spanish I</th>
+                                </tr>
+                                <tr>
+                                    <td>Score: 91%</td><td>Grade: A-</td>
+                                    <td>Score: 86%</td><td>Grade: B+</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="common-footer" data-theme="d" data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="home.html" class="common-footer-icon common-footer-home">首页</a></li>
+                        <li><a href="studentinfo.html" class="common-footer-icon common-footer-studentinfo">学生信息</a></li>
+                        <li><a href="schoolinfo.html" class="common-footer-icon common-footer-schoolinfo">学校情况</a></li>
+                        <li><a href="studentlife.html" class="common-footer-icon common-footer-studentlife">生活记事</a></li>
+                        <li><a href="advanceservice.html" class="common-footer-icon common-footer-advanceservice">增值服务</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
