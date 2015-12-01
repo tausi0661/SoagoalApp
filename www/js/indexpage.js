@@ -8,8 +8,20 @@ var indexpage = new function() {
         jqPanelMessager = $('div#panelMessager');
 
         $('#btn_index_login', jqPage).click(function() {
-            console.log('hello1');
-            $.mobile.changePage("home.html", { transition: "slideup" })
+            var mobile = $('#txt_index_login_username', jqPage).val();
+            var password = $('#txt_index_login_password', jqPage).val();
+            if (mobile && mobile.length > 0 && password && password.length > 0) {
+                ajaxor.ajax('parentlogin', 'mobile=' + mobile + '&password=' + password, function(oResult) {
+                    if (oResult.IsSuccessful) {
+                        mdl_ParentLogin = oResult.ResultObj;
+                        $.mobile.changePage("home.html", { transition: "slideup" });
+                    } else {
+                        commonUI.commonDialog('登录失败', oResult.Message, null, true);
+                    }
+                });
+            } else {
+                commonUI.commonDialog('提示', '请输入正确的手机号及密码.', null, true);
+            }
         });
         $('#btn_index_login2', jqPage).click(function() {
             alert('hello2');

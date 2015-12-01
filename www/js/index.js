@@ -221,17 +221,50 @@ var commonUI = new function() {
         jqInput.parents('div.ui-field-contain').append('<div class="common-form-error">' + msg + '</div>');
     };
 
-    this.commonDialog = function(title, msg, closeCallback) {
+    this.commonDialog = function(title, msg, closeCallback, autoClose) {
         var jqDialog = $('#popupCommonDialog');
         jqDialog.one('popupafterclose', function() {
             hideOverlay();
-            closeCallback();
+            if (closeCallback) closeCallback();
         });
         jqDialog.find('h3').html(title);
         jqDialog.find('p').html(msg);
         jqDialog.popup('open');
         showOverlay();
-        //setTimeout("$('#popupCommonDialog').popup('close');", 5000);
+        if (autoClose == true) {
+            setTimeout("$('#popupCommonDialog').popup('close');", 5000);
+        }
     };
 }
 
+var ajaxor = new function() {
+    
+    this.ajax = function(cmd, data, callback) {
+        commonUI.loading();
+        var param = (data && data.length > 0 ? '&' : '') + 'ajax=1&cmd=' + cmd;
+        $.ajax({
+            url: soagoal.config.product1,
+            type: "POST",
+            cache: false,
+            data: param,
+            dataType: "json",
+            async: false,
+            success: function (oResult) {
+                if (oResult.SessionTimeout) {
+                    $.mobile.changePage("index.html", { transition: "slideup" });
+                } else {
+                    if (callback) {
+                        callback(oResult);
+                    }
+                }
+            },
+            error: function (xhr, status, errorThrown) {
+                logger.error(errorThrown);
+                commonUI.commonDialog('未知错误', '服务器繁忙, 程序猿加班解决中, 请稍候重试.', null, true);
+            },
+            complete: function (xhr, status) { commonUI.loaded() }
+        });
+    };
+}
+
+var mdl_ParentLogin = null;
