@@ -1,25 +1,33 @@
 var indexpage = new function() {
     var jqPage = null;
+    var jqPanelMenu = null;
     var jqPanelMessager = null;
 
     this.init = function() {
         console.log('indexpage initing.....');
         jqPage = $('body > div#pgIndex');
+        jqPanelMenu = $('div#panelMenu');
         jqPanelMessager = $('div#panelMessager');
 
         $('#btn_index_login', jqPage).click(function() {
-            console.log('hello');
+            var productVal = $('#sel_index_product', jqPage).val();
+            ajaxor.setProduct(productVal);
+            
             var mobile = $('#txt_index_login_username', jqPage).val();
             var password = $('#txt_index_login_password', jqPage).val();
             if (mobile && mobile.length > 0 && password && password.length > 0) {
-                ajaxor.ajax('parentlogin', 'mobile=' + mobile + '&password=' + password, function(oResult) {
-                    if (oResult.IsSuccessful) {
-                        mdl_ParentLogin = oResult.ResultObj;
-                        $.mobile.changePage("home.html", { transition: "slideup" });
-                    } else {
-                        commonUI.commonDialog('登录失败', oResult.Message, null, true);
+                ajaxor.ajax('parentlogin', 
+                    'mobile=' + mobile + '&password=' + password + '&postsummarylength=' + soagoalConfig.postsummarylength, 
+                    function(oResult) {
+                        if (oResult.IsSuccessful) {
+                            mdl_ParentLogin = oResult.ResultObj;
+                            initData();
+                            $.mobile.changePage("home.html", { transition: "slideup" });
+                        } else {
+                            commonUI.commonDialog('登录失败', oResult.Message, null, true);
+                        }
                     }
-                });
+                );
             } else {
                 commonUI.commonDialog('提示', '请输入正确的手机号及密码.', null, true);
             }
@@ -46,6 +54,13 @@ var indexpage = new function() {
         });
 
         $('button', jqPanelMessager).click( handlePanelMessagerSubmit );
+    };
+    
+    var initData = function() {
+        if (mdl_ParentLogin) {
+            $('#img_panelMenu_avatar', jqPanelMenu).attr('src', commonUtil.combineURL(gbl_Domain, mdl_ParentLogin['PhotoURL']));
+            $('#span_panelMenu_studentname', jqPanelMenu).html(mdl_ParentLogin['RStudentName']);
+        }
     };
 
     var handlePanelMessagerSubmit = function() {

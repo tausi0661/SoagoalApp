@@ -19,14 +19,16 @@ var homepage = new function() {
     };
     
     var htmltag_title = '#title#';
+    var htmltag_postid = '#postid#';
     var htmltag_imgsrc = '#imgsrc#';
-    var html_announcement = '<li><a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_msg_notice">-#title#</a></li>';
-    var html_studies = '<li><a href="commonpost.html"><img src="#imgsrc#" /><h2>#title#</h2><p><span class="common-name-highlight">艾沐臻</span>参加了长跑和跳远两项比赛, 分别取得第二和第五名.</p></a></li>';
-    var html_news = '<li><a href="#popupCommonTextPost" data-rel="popup" data-position-to="window" data-transition="pop" class="a_home_school_news">-#title#</a></li>';
+    var htmltag_summary = '#summary#';
+    var html_announcement = '<li><a href="commonpost.html?postid=#postid#" class="a_home_msg_notice">-#title#</a></li>';
+    var html_studies = '<li><a href="commonpost.html?postid=#postid#"><img src="#imgsrc#" /><h2>#title#</h2><p>#summary#</p></a></li>';
+    var html_news = '<li><a href="commonpost.html?postid=#postid#" class="a_home_school_news">-#title#</a></li>';
     var initData = function() {
         //数据加载成功:
         if (mdl_ParentLogin) {
-            $('#div_home_header_student_name', jqPage).html(mdl_ParentLogin['RStudentName']);
+            $('#span_home_header_student_name', jqPage).html(mdl_ParentLogin['RStudentName']);
             $('#div_home_header_datetime_text', jqPage).html(mdl_ParentLogin['LastLoginTime']);
             
             //posts:
@@ -38,7 +40,9 @@ var homepage = new function() {
                     var html = '';
                     for (var i = 0; i < postDic['Announcement'].length; i++) {
                         var oPost = postDic['Announcement'][i];
-                        html += html_announcement.replace(htmltag_title, oPost['Title']);
+                        gbl_PostDic[oPost['ID']] = oPost;
+                        html += html_announcement.replace(htmltag_title, oPost['Title'])
+                            .replace(htmltag_postid, oPost['ID']);
                     }
                     jqListView.append(html).listview('refresh');
                 }
@@ -48,7 +52,11 @@ var homepage = new function() {
                     var html = '';
                     for (var i = 0; i < postDic['Studies'].length; i++) {
                         var oPost = postDic['Studies'][i];
-                        html += html_studies.replace(htmltag_title, oPost['Title']).replace(htmltag_imgsrc, 'http://127.0.0.1:8988' + oPost['ThumbnailFullPath']);
+                        gbl_PostDic[oPost['ID']] = oPost;
+                        html += html_studies.replace(htmltag_title, oPost['Title'])
+                            .replace(htmltag_imgsrc, commonUtil.combineURL(gbl_Domain, oPost['ThumbnailFullPath']))
+                            .replace(htmltag_postid, oPost['ID'])
+                            .replace(htmltag_summary, oPost['Summary']);
                     }
                     jqListView.append(html).listview('refresh');
                 }
@@ -57,8 +65,10 @@ var homepage = new function() {
                     jqListView.find('li>a.a_home_school_news').parent().remove();
                     var html = '';
                     for (var i = 0; i < postDic['News'].length; i++) {
-                        var oPost = postDic['Studies'][i];
-                        html += html_news.replace(htmltag_title, oPost['Title']);
+                        var oPost = postDic['News'][i];
+                        gbl_PostDic[oPost['ID']] = oPost;
+                        html += html_news.replace(htmltag_title, oPost['Title'])
+                            .replace(htmltag_postid, oPost['ID']);
                     }
                     jqListView.append(html).listview('refresh');
                 }

@@ -1,3 +1,10 @@
+//global variables:
+var gbl_Domain = soagoalConfig.product1;
+var gbl_PostDic = {};
+var mdl_ParentLogin = null;
+//global variables -end
+
+//page init bindings:
 $(document).on('pageinit','#pgIndex' ,function(e,data){ indexpage.init(); });
 $(document).on('pageinit','#pgHome' ,function(e,data){ homepage.init(); });
 $(document).on('pageinit','#pgSchoolInfo' ,function(e,data){ schoolinfo.init(); });
@@ -7,7 +14,10 @@ $(document).on('pageinit','#pgAdvanceService' ,function(e,data){ advanceservice.
 $(document).on('pageinit','#pgCommonPost' ,function(e,data){ commonpost.init(); });
 
 $(document).on('pagebeforeshow','#pgHome' ,function(e,data){ homepage.beforeshow(); });
+$(document).on('pagebeforeshow','#pgCommonPost' ,function(e,data){ commonpost.beforeshow(); });
+//page init bindings -end
 
+//html ready bindings:
 $(function() {
     $( "body>#panelMessager" ).enhanceWithin().panel();
     $( "body>#panelMenu" ).enhanceWithin().panel();
@@ -24,6 +34,7 @@ $(function() {
        popupafterclose: function(){ $('body').off('touchmove'); }
     });
 });
+//html bindings -end
 
 $(document).ready(function() {
     // are we running in native app or in a browser?
@@ -53,6 +64,7 @@ $(document).ready(function() {
     }
 });
 
+//----global files handlers----
 var currentMethod = '';
 var globalProfileFileEntry = null;
 var globalProfileFileEntry = null;
@@ -161,6 +173,7 @@ function global_init() {
         // targetPage.init();
     });
 }
+//----global files handlers----
 
 var logger = new function() {
     
@@ -193,7 +206,7 @@ var logger = new function() {
         
         writeToLogFile(msg);
     }
-}
+};
 
 var commonUI = new function() {
 
@@ -235,15 +248,52 @@ var commonUI = new function() {
             setTimeout("$('#popupCommonDialog').popup('close');", 5000);
         }
     };
-}
+};
+
+var commonUtil = new function() {
+    this.combineURL = function(path1, path2) {
+        var url = '';
+        if (path1 && path1.length > 0) {
+            url = (soagoalConfig.https ? 'https://' : 'http://') + path1.replace('\\', '/').replace('http://', '').replace('https://', '');
+            url = url.substr(-1, 1) == '/' ? url.substr(0, url.length -1) : url;
+        }
+        if (path2 && path2.length > 0) {
+            path2 = path2.replace('\\', '/');
+            url += (path2.substr(0, 1) == '/' ? '' : '/') + path2;
+        }
+        return url;
+    };
+    
+    this.urlParam = function(key) {
+        var value = '';
+        var arr1 = $.mobile.activePage.data('url').split('?');
+        if (arr1.length > 1) {
+            var params = arr1[1].split('&');
+            for (var i = 0; i < params.length; i++) {
+                if (params[i].indexOf(key + '=') == 0) {
+                    value = params[i].replace(key + '=', '');
+                    break;
+                }
+            }
+        }
+        return value;
+    };
+};
 
 var ajaxor = new function() {
+    
+    var apiURL = '';
+    
+    this.setProduct = function(productVal) {
+        if (productVal && soagoalConfig[productVal]) gbl_Domain = soagoalConfig[productVal];
+        apiURL = commonUtil.combineURL(gbl_Domain, soagoalConfig.api);
+    };
     
     this.ajax = function(cmd, data, callback) {
         commonUI.loading();
         var param = (data && data.length > 0 ? data + '&' : '') + 'ajax=1&cmd=' + cmd;
         $.ajax({
-            url: soagoal.config.product1,
+            url: apiURL,
             type: "POST",
             cache: false,
             data: param,
@@ -265,6 +315,4 @@ var ajaxor = new function() {
             complete: function (xhr, status) { commonUI.loaded() }
         });
     };
-}
-
-var mdl_ParentLogin = null;
+};
