@@ -241,7 +241,7 @@ var ajaxor = new function() {
     
     this.ajax = function(cmd, data, callback) {
         commonUI.loading();
-        var param = (data && data.length > 0 ? '&' : '') + 'ajax=1&cmd=' + cmd;
+        var param = (data && data.length > 0 ? data + '&' : '') + 'ajax=1&cmd=' + cmd;
         $.ajax({
             url: soagoal.config.product1,
             type: "POST",

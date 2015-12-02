@@ -8,6 +8,7 @@ var indexpage = new function() {
         jqPanelMessager = $('div#panelMessager');
 
         $('#btn_index_login', jqPage).click(function() {
+            console.log('hello');
             var mobile = $('#txt_index_login_username', jqPage).val();
             var password = $('#txt_index_login_password', jqPage).val();
             if (mobile && mobile.length > 0 && password && password.length > 0) {
