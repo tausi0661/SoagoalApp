@@ -52,7 +52,12 @@ var homepage = new function() {
                     var html = '';
                     for (var i = 0; i < postDic['Studies'].length; i++) {
                         var oPost = postDic['Studies'][i];
-                        gbl_PostDic[oPost['ID']] = oPost;
+                        if (oPost['ContentBody']) {
+                            //normal post:
+                            gbl_PostDic[oPost['ID']] = oPost;
+                        } else {
+                            //transcript:
+                        }
                         html += html_studies.replace(htmltag_title, oPost['Title'])
                             .replace(htmltag_imgsrc, commonUtil.combineURL(gbl_Domain, oPost['ThumbnailFullPath']))
                             .replace(htmltag_postid, oPost['ID'])
