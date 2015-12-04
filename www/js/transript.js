@@ -1,4 +1,4 @@
-var transcript = new function() {
+﻿var transcript = new function() {
     var jqPage = null;
     var jqTbl = null;
     var mdl_TranscriptAndScoreEntries = null;
@@ -19,7 +19,7 @@ var transcript = new function() {
                     mdl_TranscriptAndScoreEntries = oResult.ResultObj;
                     initData();
                 } else {
-                    $.mobile.back();
+                    commonUI.commonDialog('读取数据失败', oResult.Message, function() { $.mobile.back(); }, true);
                 }
             }
         );
@@ -37,9 +37,14 @@ var transcript = new function() {
             var oScoreEntry = arrScoreEntryList[i];
             sHTML += '<tr class="transcriptScoreEntry">'
                    + '  <td>' + oScoreEntry['RRealClassName'] + '</td>'
-                   + '  <td>' + oScoreEntry['RTeacherName'] + '</td>'
                    + '  <td>' + oScoreEntry['Score'] + '</td>'
-                   + '  <td>' + oScoreEntry['Comment'] + '</td>'
+                   + '  <td><a href="#">' + oScoreEntry['RTeacherName'] + ' </a> ></td>'
+                   + '</tr>'
+                   + '<tr class="transcriptScoreEntry transcriptScoreEntry-Comment">'
+                   + '  <td colspan="3"><span>评语: </span>' + oScoreEntry['Comment'] + '</td>'
+                   + '</tr>'
+                   + '<tr class="transcriptScoreEntry transcriptScoreEntry-Comment">'
+                   + '  <td colspan="3">&nbsp;</td>'
                    + '</tr>';
         }
         //jqTbl.find('tr.transcriptScoreEntry').remove();

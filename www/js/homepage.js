@@ -1,6 +1,7 @@
 var homepage = new function() {
     var jqPage = null;
-
+    var mdl_HomePagePosts = null;
+    
     this.init = function() {
         logger.debug('homepage initing.....');
         jqPage = $('body > div#pgHome');
@@ -15,7 +16,17 @@ var homepage = new function() {
         var sminutes = usminutes < 10 ? ('0' + usminutes) : usminutes;
         $('#span_home_US_time').html((ushours < 12 ? ' 上午 ' : ' 下午 ') + shours + ':' + sminutes);
         
-        initData();
+        ajaxor.ajax('listhomepageposts', 
+            'postcount=' + soagoalConfig.homepostcount + '&postsummarylength=' + soagoalConfig.postsummarylength, 
+            function(oResult) {
+                if (oResult.IsSuccessful) {
+                    mdl_HomePagePosts = oResult.ResultObj;
+                    initData();
+                } else {
+                    commonUI.commonDialog('读取数据失败', oResult.Message, null, true);
+                }
+            }
+        );
     };
     
     var htmltag_title = '#title#';
@@ -24,7 +35,7 @@ var homepage = new function() {
     var htmltag_summary = '#summary#';
     var html_announcement = '<li><a href="commonpost.html?postid=#id#" class="a_home_msg_notice">-#title#</a></li>';
     var html_studies = '<li><a href="commonpost.html?postid=#id#"><img src="#imgsrc#" /><h2>#title#</h2><p>#summary#</p></a></li>';
-    var html_trascript = '<li><a href="transcript.html?tid=#id#"><img src="#imgsrc#" /><h2>#title#</h2><p>#summary#</p></a></li>';
+    var html_trascript = '<li><a href="transcript.html?tid=#id#"><img src="#imgsrc#" /><h2>#title#</h2></a></li>';
     var html_news = '<li><a href="commonpost.html?postid=#id#" class="a_home_school_news">-#title#</a></li>';
     var initData = function() {
         //数据加载成功:

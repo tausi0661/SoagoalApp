@@ -15,6 +15,7 @@ $(document).on('pageinit','#pgCommonPost' ,function(e,data){ commonpost.init(); 
 $(document).on('pageinit','#pgTranscript' ,function(e,data){ transcript.init(); });
 
 $(document).on('pagebeforeshow','#pgHome' ,function(e,data){ homepage.beforeshow(); });
+$(document).on('pagebeforeshow','#pgStudentInfo' ,function(e,data){ studentinfo.beforeshow(); });
 $(document).on('pagebeforeshow','#pgCommonPost' ,function(e,data){ commonpost.beforeshow(); });
 $(document).on('pagebeforeshow','#pgTranscript' ,function(e,data){ transcript.beforeshow(); });
 //page init bindings -end
@@ -279,6 +280,17 @@ var commonUtil = new function() {
             }
         }
         return value;
+    };
+};
+
+var commonConst = new function() {
+    this.period = function(v) {
+        var s = '';
+        switch (v + '') {
+            case '1': s = '春季'; break;
+            case '2': s = '秋季'; break;
+        }
+        return s;
     };
 };
 

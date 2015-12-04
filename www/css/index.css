@@ -553,3 +553,28 @@ a { -webkit-user-select: none !important; }
     width: 100%;
 }
 /*-----end common post page--------*/
+
+/*-----transcript page--------*/
+#tbl_transcript {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 0;
+    width: 100%;
+}
+#tbl_transcript th, #tbl_transcript td {
+    line-height: 22px;
+    border: 1px solid #ddd;
+}
+#tbl_transcript th {
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+/*-----end transcript page--------*/
+
+
+
+
+
+
