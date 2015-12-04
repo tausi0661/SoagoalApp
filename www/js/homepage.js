@@ -19,21 +19,22 @@ var homepage = new function() {
     };
     
     var htmltag_title = '#title#';
-    var htmltag_postid = '#postid#';
+    var htmltag_postid = '#id#';
     var htmltag_imgsrc = '#imgsrc#';
     var htmltag_summary = '#summary#';
-    var html_announcement = '<li><a href="commonpost.html?postid=#postid#" class="a_home_msg_notice">-#title#</a></li>';
-    var html_studies = '<li><a href="commonpost.html?postid=#postid#"><img src="#imgsrc#" /><h2>#title#</h2><p>#summary#</p></a></li>';
-    var html_news = '<li><a href="commonpost.html?postid=#postid#" class="a_home_school_news">-#title#</a></li>';
+    var html_announcement = '<li><a href="commonpost.html?postid=#id#" class="a_home_msg_notice">-#title#</a></li>';
+    var html_studies = '<li><a href="commonpost.html?postid=#id#"><img src="#imgsrc#" /><h2>#title#</h2><p>#summary#</p></a></li>';
+    var html_trascript = '<li><a href="transcript.html?tid=#id#"><img src="#imgsrc#" /><h2>#title#</h2><p>#summary#</p></a></li>';
+    var html_news = '<li><a href="commonpost.html?postid=#id#" class="a_home_school_news">-#title#</a></li>';
     var initData = function() {
         //数据加载成功:
-        if (mdl_ParentLogin) {
-            $('#span_home_header_student_name', jqPage).html(mdl_ParentLogin['RStudentName']);
-            $('#div_home_header_datetime_text', jqPage).html(mdl_ParentLogin['LastLoginTime']);
+        if (gbl_mdl_ParentLogin) {
+            $('#span_home_header_student_name', jqPage).html(gbl_mdl_ParentLogin['RStudentName']);
+            $('#div_home_header_datetime_text', jqPage).html(gbl_mdl_ParentLogin['LastLoginTime']);
             
             //posts:
-            if (mdl_ParentLogin['PostDic']) {
-                var postDic = mdl_ParentLogin['PostDic'];
+            if (gbl_mdl_ParentLogin['PostDic']) {
+                var postDic = gbl_mdl_ParentLogin['PostDic'];
                 if (postDic['Announcement'] && postDic['Announcement'].length > 0) {
                     var jqListView = $('#ul_home_msg_notice', jqPage);
                     $('li>a.a_home_msg_notice', jqListView).parent().remove();
@@ -55,13 +56,15 @@ var homepage = new function() {
                         if (oPost['ContentBody']) {
                             //normal post:
                             gbl_PostDic[oPost['ID']] = oPost;
+                            html += html_studies.replace(htmltag_title, oPost['Title'])
+                                .replace(htmltag_imgsrc, oPost['ThumbnailFullPath'])
+                                .replace(htmltag_postid, oPost['ID'])
+                                .replace(htmltag_summary, oPost['Summary']);
                         } else {
                             //transcript:
+                            html += html_trascript.replace(htmltag_title, oPost['Title'])
+                                .replace(htmltag_postid, oPost['ID']);
                         }
-                        html += html_studies.replace(htmltag_title, oPost['Title'])
-                            .replace(htmltag_imgsrc, commonUtil.combineURL(gbl_Domain, oPost['ThumbnailFullPath']))
-                            .replace(htmltag_postid, oPost['ID'])
-                            .replace(htmltag_summary, oPost['Summary']);
                     }
                     jqListView.append(html).listview('refresh');
                 }

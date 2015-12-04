@@ -1,7 +1,7 @@
 //global variables:
 var gbl_Domain = soagoalConfig.product1;
 var gbl_PostDic = {};
-var mdl_ParentLogin = null;
+var gbl_mdl_ParentLogin = null;
 //global variables -end
 
 //page init bindings:
@@ -12,9 +12,11 @@ $(document).on('pageinit','#pgStudentInfo' ,function(e,data){ studentinfo.init()
 $(document).on('pageinit','#pgStudendLife' ,function(e,data){ studentlife.init(); });
 $(document).on('pageinit','#pgAdvanceService' ,function(e,data){ advanceservice.init(); });
 $(document).on('pageinit','#pgCommonPost' ,function(e,data){ commonpost.init(); });
+$(document).on('pageinit','#pgTranscript' ,function(e,data){ transcript.init(); });
 
 $(document).on('pagebeforeshow','#pgHome' ,function(e,data){ homepage.beforeshow(); });
 $(document).on('pagebeforeshow','#pgCommonPost' ,function(e,data){ commonpost.beforeshow(); });
+$(document).on('pagebeforeshow','#pgTranscript' ,function(e,data){ transcript.beforeshow(); });
 //page init bindings -end
 
 //html ready bindings:
@@ -292,6 +294,7 @@ var ajaxor = new function() {
     this.ajax = function(cmd, data, callback) {
         commonUI.loading();
         var param = (data && data.length > 0 ? data + '&' : '') + 'ajax=1&cmd=' + cmd;
+        if (cmd != 'parentlogin') param += '&hash=' + encodeURIComponent(gbl_mdl_ParentLogin['Hash']) + '&parentid=' + gbl_mdl_ParentLogin['ParentID'];
         $.ajax({
             url: apiURL,
             type: "POST",

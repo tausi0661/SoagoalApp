@@ -20,7 +20,7 @@ var indexpage = new function() {
                     'mobile=' + mobile + '&password=' + password + '&postsummarylength=' + soagoalConfig.postsummarylength, 
                     function(oResult) {
                         if (oResult.IsSuccessful) {
-                            mdl_ParentLogin = oResult.ResultObj;
+                            gbl_mdl_ParentLogin = oResult.ResultObj;
                             initData();
                             $.mobile.changePage("home.html", { transition: "slideup" });
                         } else {
@@ -57,9 +57,9 @@ var indexpage = new function() {
     };
     
     var initData = function() {
-        if (mdl_ParentLogin) {
-            $('#img_panelMenu_avatar', jqPanelMenu).attr('src', commonUtil.combineURL(gbl_Domain, mdl_ParentLogin['PhotoURL']));
-            $('#span_panelMenu_studentname', jqPanelMenu).html(mdl_ParentLogin['RStudentName']);
+        if (gbl_mdl_ParentLogin) {
+            $('#img_panelMenu_avatar', jqPanelMenu).attr('src', gbl_mdl_ParentLogin['PhotoURL']);
+            $('#span_panelMenu_studentname', jqPanelMenu).html(gbl_mdl_ParentLogin['RStudentName']);
         }
     };
 
