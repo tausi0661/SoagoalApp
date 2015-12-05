@@ -44,8 +44,8 @@ var homepage = new function() {
             $('#div_home_header_datetime_text', jqPage).html(gbl_mdl_ParentLogin['LastLoginTime']);
             
             //posts:
-            if (gbl_mdl_ParentLogin['PostDic']) {
-                var postDic = gbl_mdl_ParentLogin['PostDic'];
+            if (mdl_HomePagePosts) {
+                var postDic = mdl_HomePagePosts;
                 if (postDic['Announcement'] && postDic['Announcement'].length > 0) {
                     var jqListView = $('#ul_home_msg_notice', jqPage);
                     $('li>a.a_home_msg_notice', jqListView).parent().remove();

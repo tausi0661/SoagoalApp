@@ -16,6 +16,7 @@ $(document).on('pageinit','#pgTranscript' ,function(e,data){ transcript.init(); 
 
 $(document).on('pagebeforeshow','#pgHome' ,function(e,data){ homepage.beforeshow(); });
 $(document).on('pagebeforeshow','#pgStudentInfo' ,function(e,data){ studentinfo.beforeshow(); });
+$(document).on('pagebeforeshow','#pgSchoolInfo' ,function(e,data){ schoolinfo.beforeshow(); });
 $(document).on('pagebeforeshow','#pgCommonPost' ,function(e,data){ commonpost.beforeshow(); });
 $(document).on('pagebeforeshow','#pgTranscript' ,function(e,data){ transcript.beforeshow(); });
 //page init bindings -end
@@ -280,6 +281,19 @@ var commonUtil = new function() {
             }
         }
         return value;
+    };
+    
+    var imageNameReg = /^.+\.(jpg|png|gif|bmp)$/;
+    this.smallPic = function(imageURL) {
+        var newURL = imageURL;
+        if (imageURL && imageURL.length > 0) {
+            imageURL = imageURL.replace('\\', '/').toLowerCase();
+            var imageName = imageURL.substr(imageURL.lastIndexOf('/') + 1);
+            if (imageNameReg.test(imageName)) {
+                newURL = imageURL.substr(0, imageURL.lastIndexOf('/')) + '/' + 'small_' + imageName;
+            }
+        }
+        return newURL;
     };
 };
 

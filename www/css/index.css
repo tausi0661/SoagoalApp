@@ -346,6 +346,15 @@ a { -webkit-user-select: none !important; }
     border: 1px solid #55d98d;
     border-top: none;
 }
+#ul_schoolinfo_teachers > li.liTeacherItem > a > p {
+    font-size: 0.85em;
+    font-weight: normal;
+    height: 40px;
+    line-height: 1.1em;
+    overflow: auto;
+    white-space: normal;
+}
+
 #ul_schoolinfo_teachers > li > a > h2 {
     margin-top: -0.5em;
 }
@@ -412,9 +421,11 @@ a { -webkit-user-select: none !important; }
 }
 #ul_studentinfo_studentinfo > li > h2 {
     margin: 0;
+    margin-top: 10px;
 }
 #ul_studentinfo_studentinfo > li > p {
     margin: 3px 0;
+    font-size: 0.95em;
 }
 #div_studentlife_gary {
     margin-top: 5px;
@@ -428,23 +439,54 @@ a { -webkit-user-select: none !important; }
 /*----------end student live page--------*/
 
 /*--------student info page-------*/
+#div_studentinfo_img_gallery {
+    margin-bottom: 10px;
+}
 #div_studentinfo_img_gallery .ui-bar {
     padding: 0.3em 1em;
+    font-size: 0.9em;
 }
 #div_studentinfo_img_gallery .ui-body {
     padding: 0.2em;
+}
+#div_studentinfo_img_gallery_panel img.photothumbnail {
+    max-height: 80px;
+}
+#div_studentinfo_img_gallery_panel img.popphoto {
+    max-height: 512px;
+}
+#div_studentinfo_grades_list  .ui-bar {
+    padding: 0.3em 1em;
+    font-size: 0.9em;
 }
 #div_studentinfo_grades_list {
     margin-top: 10px;
 }
 #div_studentinfo_grades_list > .ui-body {
     padding: 6px 5px;
+    overflow-y: auto;
+    min-height: 300px;
 }
 #div_studentinfo_grades_list > .ui-body > fieldset {
     margin-top: 0;
 }
 #div_studentinfo_grades_list > .ui-body > fieldset legend {
     font-size: 0.85em;
+}
+#div_studentinfo_transcriptlist {
+    font-size: 0.8em;
+    margin-left: 15px;
+    margin-top: 20px;
+    width: 90%;
+}
+#div_studentinfo_transcriptlist > ul {
+    border: 1px solid #ddd;
+}
+#div_studentinfo_transcriptlist > ul > li {
+    border-bottom: 1px solid #ddd;
+}
+#div_studentinfo_transcriptlist > ul > li > a{
+    font-weight: normal;
 }
 #table_studentinfo_grades {
     border-spacing: 0;
@@ -544,6 +586,11 @@ a { -webkit-user-select: none !important; }
     font-weight: bold;
     margin-bottom: 0;
 }
+#div_commonpost_postdate {
+    float: right;
+    font-size: 0.75em;
+    margin-right: 15px;
+}
 #div_commonpost_maincontent > div.ui-body {
     padding-left: 0;
     padding-right: 0;
@@ -555,6 +602,11 @@ a { -webkit-user-select: none !important; }
 /*-----end common post page--------*/
 
 /*-----transcript page--------*/
+#div_transcript_postdate {
+    float: right;
+    font-size: 0.75em;
+    margin-right: 15px;
+}
 #tbl_transcript {
     border: 1px solid #ddd;
     border-collapse: collapse;

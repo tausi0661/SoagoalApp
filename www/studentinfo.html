@@ -32,17 +32,15 @@
                 </ul>
 
                 <div id="div_studentinfo_img_gallery" class="tim-main-content ui-corner-all tim-main-corner">
-                    <div class="ui-bar ui-bar-b">
-                        <h5>活动照片墙</h5>
-                    </div>
+                    <div class="ui-bar ui-bar-b">活动照片墙</div>
                     <div class="ui-body ui-body-b" style="overflow-x:auto;">
-                        <div style="width:1000px;">
-                            <a href="#popupParis" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="img/paris.jpg" alt="Paris, France" style="height:77px;"></a>
-                            <a href="#popupSydney" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="img/sydney.jpg" alt="Sydney, Australia" style="height:77px;"></a>
-                            <a href="#popupNYC" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="img/newyork.jpg" alt="New York, USA" style="height:77px;"></a>
-                            <a href="#popupRun" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="img/photo-run.jpeg" alt="New York, USA" style="height:77px;"></a>
+                        <div style="width:1000px;" id="div_studentinfo_img_gallery_panel">
+                            <a href="#popupParis" data-rel="popup" data-position-to="window" data-transition="fade"><img class="photothumbnail" src="img/paris.jpg" alt="Paris, France" style="height:77px;"></a>
+                            <a href="#popupSydney" data-rel="popup" data-position-to="window" data-transition="fade"><img class="photothumbnail" src="img/sydney.jpg" alt="Sydney, Australia" style="height:77px;"></a>
+                            <a href="#popupNYC" data-rel="popup" data-position-to="window" data-transition="fade"><img class="photothumbnail" src="img/newyork.jpg" alt="New York, USA" style="height:77px;"></a>
+                            <a href="#popupRun" data-rel="popup" data-position-to="window" data-transition="fade"><img class="photothumbnail" src="img/photo-run.jpeg" alt="New York, USA" style="height:77px;"></a>
 
-                            <div data-role="popup" id="popupParis" data-overlay-theme="g" data-theme="b" data-corners="false">
+                            <div class="photoviewpanel" data-role="popup" id="popupParis" data-overlay-theme="g" data-theme="b" data-corners="false">
                                 <h4>参观摄影展</h4>
                                 <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="img/paris.jpg" style="max-height:512px;" alt="Paris, France">
                             </div>
@@ -63,15 +61,13 @@
                 </div>
 
                 <div id="div_studentinfo_grades_list" class="tim-main-content ui-corner-all tim-main-corner">
-                    <div class="ui-bar ui-bar-b">
-                        <h5>历史成绩单</h5>
-                    </div>
-                    <div class="ui-body ui-body-b" style="overflow-x:auto;">
+                    <div class="ui-bar ui-bar-b">历史成绩单</div>
+                    <div class="ui-body ui-body-b">
                         <fieldset data-theme="d" data-role="controlgroup" data-type="horizontal" data-mini="true">
-                            <legend>选择年级与学期查询:</legend>
-                            <label for="sel_studentinfo_grade">选择年级</label>
+                            <legend>选择年份与学期过滤:</legend>
+                            <label for="sel_studentinfo_grade">选择年份</label>
                             <select name="sel_studentinfo_grade" id="sel_studentinfo_grade">
-                                <option value="#">选择年级</option>
+                                <option value="#">选择年份</option>
                                 <option value="#">9年级</option>
                                 <option value="#">10年级</option>
                                 <option value="#">11年级</option>
@@ -83,7 +79,17 @@
                                 <option value="#">第二学期</option>
                             </select>
                         </fieldset>
-                        <table id="table_studentinfo_grades">
+                        <div id="div_studentinfo_transcriptlist">
+                            <ul data-role="listview" data-theme="c" class="ui-corner-all">
+                                <li><a href="transcript.html?tid=5" data-transition="slide">[成绩单] -陈婉婷2015学年秋季 -家庭作业</a></li>
+                                <li><a href="transcript.html?tid=5" data-transition="slide">[成绩单] -陈婉婷2015学年秋季 -家庭作业</a></li>
+                                <li><a href="transcript.html?tid=5" data-transition="slide">[成绩单] -陈婉婷2015学年秋季 -家庭作业</a></li>
+                                <li><a href="transcript.html?tid=5" data-transition="slide">[成绩单] -陈婉婷2015学年秋季 -家庭作业</a></li>
+                                <li><a href="transcript.html?tid=5" data-transition="slide">[成绩单] -陈婉婷2015学年秋季 -家庭作业</a></li>
+                                <li><a href="transcript.html?tid=5" data-transition="slide">[成绩单] -陈婉婷2015学年秋季 -家庭作业</a></li>
+                            </ul>
+                        </div>
+                        <table id="table_studentinfo_grades" style="display:none;">
                             <tbody>
                                 <tr>
                                     <th colspan="2">Algebra 2 with Trigonometry</th>
