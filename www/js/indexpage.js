@@ -58,7 +58,7 @@ var indexpage = new function() {
     
     var initData = function() {
         if (gbl_mdl_ParentLogin) {
-            $('#img_panelMenu_avatar', jqPanelMenu).attr('src', gbl_mdl_ParentLogin['PhotoURL']);
+            $('#img_panelMenu_avatar', jqPanelMenu).attr('src', commonUtil.smallPic(gbl_mdl_ParentLogin['PhotoURL']));
             $('#span_panelMenu_studentname', jqPanelMenu).html(gbl_mdl_ParentLogin['RStudentName']);
         }
     };

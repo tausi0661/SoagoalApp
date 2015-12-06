@@ -33,9 +33,10 @@ var homepage = new function() {
     var htmltag_postid = '#id#';
     var htmltag_imgsrc = '#imgsrc#';
     var htmltag_summary = '#summary#';
+    var htmltag_timestamp = '#timestamp#';
     var html_announcement = '<li><a href="commonpost.html?postid=#id#" class="a_home_msg_notice">-#title#</a></li>';
-    var html_studies = '<li><a href="commonpost.html?postid=#id#"><img src="#imgsrc#" /><h2>#title#</h2><p>#summary#</p></a></li>';
-    var html_trascript = '<li><a href="transcript.html?tid=#id#"><img src="#imgsrc#" /><h2>#title#</h2></a></li>';
+    var html_studies = '<li><a href="commonpost.html?postid=#id#"><img src="#imgsrc#" /><h2>#title#</h2><p>#timestamp#</p><p>#summary#</p></a></li>';
+    var html_trascript = '<li><a href="transcript.html?tid=#id#"><img src="img/transcript.png" /><h2>#title#</h2><p>#timestamp#</p></a></li>';
     var html_news = '<li><a href="commonpost.html?postid=#id#" class="a_home_school_news">-#title#</a></li>';
     var initData = function() {
         //数据加载成功:
@@ -54,6 +55,7 @@ var homepage = new function() {
                         var oPost = postDic['Announcement'][i];
                         gbl_PostDic[oPost['ID']] = oPost;
                         html += html_announcement.replace(htmltag_title, oPost['Title'])
+                            .replace(htmltag_timestamp, oPost['CreateTime'])
                             .replace(htmltag_postid, oPost['ID']);
                     }
                     jqListView.append(html).listview('refresh');
@@ -70,10 +72,12 @@ var homepage = new function() {
                             html += html_studies.replace(htmltag_title, oPost['Title'])
                                 .replace(htmltag_imgsrc, oPost['ThumbnailFullPath'])
                                 .replace(htmltag_postid, oPost['ID'])
+                                .replace(htmltag_timestamp, oPost['CreateTime'])
                                 .replace(htmltag_summary, oPost['Summary']);
                         } else {
                             //transcript:
                             html += html_trascript.replace(htmltag_title, oPost['Title'])
+                                .replace(htmltag_timestamp, oPost['CreateTime'])
                                 .replace(htmltag_postid, oPost['ID']);
                         }
                     }
@@ -87,6 +91,7 @@ var homepage = new function() {
                         var oPost = postDic['News'][i];
                         gbl_PostDic[oPost['ID']] = oPost;
                         html += html_news.replace(htmltag_title, oPost['Title'])
+                            .replace(htmltag_timestamp, oPost['CreateTime'])
                             .replace(htmltag_postid, oPost['ID']);
                     }
                     jqListView.append(html).listview('refresh');

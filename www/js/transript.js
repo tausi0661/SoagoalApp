@@ -38,7 +38,7 @@
             sHTML += '<tr class="transcriptScoreEntry">'
                    + '  <td>' + oScoreEntry['RRealClassName'] + '</td>'
                    + '  <td>' + oScoreEntry['Score'] + '</td>'
-                   + '  <td><a href="#">' + oScoreEntry['RTeacherName'] + ' </a> ></td>'
+                   + '  <td><a href="teacherinfo.html?tid=' + oScoreEntry['RTeacherID'] + '" data-transition="slide">' + oScoreEntry['RTeacherName'] + ' </a> ></td>'
                    + '</tr>'
                    + '<tr class="transcriptScoreEntry transcriptScoreEntry-Comment">'
                    + '  <td colspan="3"><span>评语: </span>' + oScoreEntry['Comment'] + '</td>'

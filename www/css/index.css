@@ -338,6 +338,9 @@ a { -webkit-user-select: none !important; }
 #ul_schoolinfo_navbar > li > a {
     border-color: gray;
 }
+#div_schoolinfo_teachers, #div_schoolinfo_school_intro, #div_schoolinfo_around_school {
+    min-height: 700px;
+}
 #ul_schoolinfo_teachers {
     font-size:0.8em;
     line-height:0.9em;
@@ -402,7 +405,23 @@ a { -webkit-user-select: none !important; }
 }
 /*---------end school info page-------*/
 
-/*----------student live page--------*/
+/*----------student life page--------*/
+#ul_studentlive_activities {
+    font-size: 0.8em;
+    line-height: 0.9em;
+}
+#div_studentlife_gary {
+    margin-top: 5px;
+    font-size: 0.8em;
+    min-height: 145px;
+}
+#div_studentlife_gary > img {
+    float: left;
+    margin-right: 5px;
+}
+/*----------end student life page--------*/
+
+/*--------student info page-------*/
 #ul_studentinfo_studentinfo {
     font-size: 0.8em;
     line-height: 1em;
@@ -427,18 +446,6 @@ a { -webkit-user-select: none !important; }
     margin: 3px 0;
     font-size: 0.95em;
 }
-#div_studentlife_gary {
-    margin-top: 5px;
-    font-size: 0.8em;
-    min-height: 145px;
-}
-#div_studentlife_gary > img {
-    float: left;
-    margin-right: 5px;
-}
-/*----------end student live page--------*/
-
-/*--------student info page-------*/
 #div_studentinfo_img_gallery {
     margin-bottom: 10px;
 }
@@ -454,6 +461,9 @@ a { -webkit-user-select: none !important; }
 }
 #div_studentinfo_img_gallery_panel img.popphoto {
     max-height: 512px;
+}
+#imgShowContent img {
+    width: 100%;
 }
 #div_studentinfo_grades_list  .ui-bar {
     padding: 0.3em 1em;
@@ -591,6 +601,9 @@ a { -webkit-user-select: none !important; }
     font-size: 0.75em;
     margin-right: 15px;
 }
+#div_commonpost_body {
+    border-top: 1px solid #ddd;
+}
 #div_commonpost_maincontent > div.ui-body {
     padding-left: 0;
     padding-right: 0;
@@ -606,6 +619,9 @@ a { -webkit-user-select: none !important; }
     float: right;
     font-size: 0.75em;
     margin-right: 15px;
+}
+#div_transcript_body {
+    border-top: 1px solid #ddd;
 }
 #tbl_transcript {
     border: 1px solid #ddd;
@@ -626,6 +642,49 @@ a { -webkit-user-select: none !important; }
 /*-----end transcript page--------*/
 
 
+/*----------teacherinfo page--------*/
+#div_teacherinfo_detail {
+    margin-top: 5px;
+    font-size: 0.8em;
+    min-height: 145px;
+}
+#div_teacherinfo_detail > img {
+    float: left;
+    margin-right: 5px;
+    max-width: 35%;
+}
+#ul_teacherinfo_groups {
+    font-size: 0.8em;
+    line-height: 0.9em;
+}
+#ul_teacherinfo_groups > li.li_teacherinfo_groups_item {
+    border: 1px solid #ddd;
+    min-height: 30px;
+    padding: 3px;
+}
+#ul_teacherinfo_groups > li.li_teacherinfo_groups_classname {
+    background-color: #aaa;
+    border: 0 none;
+    color: #fff;
+    font-size: 0.9em;
+    margin-top: 1px;
+}
+#ul_teacherinfo_groups > li > table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    font-size: 12px;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 1px;
+}
+#ul_teacherinfo_groups > li > table th, #ul_teacherinfo_groups > li > table td {
+    line-height: 22px;
+    border: 1px solid #ddd;
+}
+#ul_teacherinfo_groups > li > table th {
+  text-align: left;
+}
+/*----------end teacherinfo page--------*/
 
 
 

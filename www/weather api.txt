@@ -1,9 +1,0 @@
-﻿http://api.worldweatheronline.com/free/v2/weather.ashx?q=Dallas&lang=zh&showlocaltime=yes&key=926840629e23c14cce556afea7c7e
-
-worldweatheronline.com
-tausi0661@gmail.com/57870056
-国内无法访问?
-
-api.openweathermap.org/data/2.5/weather?q=Dallas,us&lang=zh_cn&units=metric&APPID=8ac0aa5cf76b96a918530bd1af1f5588
-tausi0661@gmail.com/57870056
-目前可用

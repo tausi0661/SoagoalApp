@@ -4,6 +4,7 @@
     var jqGradeList = null;
     var jqYearSelect = null;
     var jqPeriodSelect = null;
+    var jqImageShow = null;
     
     var mdl_StudentInfo = null;
     
@@ -11,8 +12,10 @@
     var html_SelectPeriod_FirstOpt = '<option value="">选择学期</option>';
     this.init = function() {
         logger.debug('studentinfo init.....');
-        jqPage = $('body > div#pgStudentInfo');
-        jqImageGallery = $('div#div_studentinfo_img_gallery', jqPage);
+        
+        jqImageGallery = $('div#div_studentinfo_img_gallery', jqPage).on('swipeleft', function() {
+            logger.debug('swipeleft..........');
+        });
         jqGradeList = $('div#div_studentinfo_grades_list');
         jqYearSelect = $('#sel_studentinfo_grade', jqGradeList);
         jqPeriodSelect = $('#sel_studentinfo_term', jqGradeList);
@@ -28,6 +31,24 @@
             jqYearSelect.empty().append(html_SelectYear_FirstOpt + gbl_mdl_ParentLogin['YearOptHTML']).selectmenu('refresh', true).change(yearPeriodChanged);
             jqPeriodSelect.empty().append(html_SelectPeriod_FirstOpt + gbl_mdl_ParentLogin['PeriodOptHTML']).selectmenu('refresh', true).change(yearPeriodChanged);
         }
+        
+        jqImageShow = $('#imgShow', jqPage).popup().enhanceWithin().on({
+           popupafteropen: function(){ $('body').on('touchmove', false); },
+           popupafterclose: function(){ $('body').off('touchmove');  }
+        });
+        
+        $('#imgShow_Previous', jqImageShow).on('click', function() {
+            var imgidx = $('#imgShowContent > img', jqImageShow).attr('imgidx');
+            console.log('imgShow_Previous clicked...' + imgidx);
+            showImg(parseInt(imgidx) - 1, true);
+        });
+        
+        $('#imgShow_Next', jqImageShow).on('click', function() {
+            var imgidx = $('#imgShowContent > img', jqImageShow).attr('imgidx');
+            console.log('imgShow_Next clicked...' + imgidx);
+            showImg(parseInt(imgidx) + 1, true);
+        });
+        
     };
 
     this.beforeshow = function() {
@@ -68,8 +89,7 @@
     var htmltag_href = '#href#';
     var htmltag_src = '#src#';
     var htmltag_alt = '#alt#';
-    var html_image1 = '<a href="##href#" data-rel="popup" data-position-to="window" data-transition="fade"><img class="photothumbnail" src="#src#" alt="#alt#"></a>';
-    var html_image2 = '<div class="photoviewpanel" data-role="popup" id="#href#" data-overlay-theme="g" data-theme="b" data-corners="false"><h4>#alt#</h4><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="#src#" alt="#alt#"></div>';
+    var html_image = '<a href="#" data-rel="popup" data-position-to="window" data-transition="fade"><img class="photothumbnail" src="#src#" alt="#alt#" imgidx="#idx#" /></a>';
     
     var htmltag_id = '#id#';
     var htmltag_name = '#name#';
@@ -87,25 +107,45 @@
             //图片gallery:
             if (mdl_StudentInfo['PictureList'] && mdl_StudentInfo['PictureList'].length > 0) {
                 var pictureList = mdl_StudentInfo['PictureList'];
-                var sHTML1 = '', sHTML2 = '';
+                var sHTML = '';
                 var jqDiv = $('#div_studentinfo_img_gallery_panel', jqImageGallery);
                 jqDiv.find('img.photothumbnail').remove();
                 jqDiv.find('div.photoviewpanel').remove();
                 for (var i = 0; i < pictureList.length; i++) {
                     var oPicture = pictureList[i];
-                    sHTML1 += html_image1.replace(htmltag_href, 'galleryphoto_' + i)
+                    sHTML += html_image.replace(htmltag_href, 'galleryphoto_' + i)
+                                        .replace('#idx#', i)
                                         .replace(htmltag_src, oPicture['V_ThumbnailFullPath'])
                                         .replace(htmltag_alt, oPicture['ALT']);
-                    sHTML2 += html_image2.replace(htmltag_href, 'galleryphoto_' + i)
-                                        .replace(htmltag_src, oPicture['FullPath'])
-                                        .replace(htmltag_alt, oPicture['ALT']);
                 }
-                jqDiv.append(sHTML1 + sHTML2);
-                jqDiv.find('div.photoviewpanel').enhanceWithin().popup();
+                jqDiv.append(sHTML);
+                
+                $('img.photothumbnail', jqDiv).on('click', function() {
+                    console.log('llll---' + $(this).attr('imgidx'));
+                    showImg($(this).attr('imgidx'));
+                });
             }
             
             //成绩单
             initTranscript(mdl_StudentInfo['TranscriptList']);
+            
+        }
+    };
+                
+    var showImg = function(idx, isNav) {
+        var oPicture = mdl_StudentInfo['PictureList'][idx];
+        if (oPicture && oPicture['FullPath']) {
+            commonUI.showOverlay();
+            $('#imgShow_Header', jqImageShow).html(oPicture['ALT']);
+            var oImg = $('#imgShowContent > img', jqImageShow).one('load', function() {
+                if (isNav) {
+                    jqImageShow.popup("reposition", {positionTo: 'window'}).popup("reposition", {positionTo: 'window'}).popup("reposition", {positionTo: 'window'}).popup("reposition", {positionTo: 'window'}).popup("reposition", {positionTo: 'window'});
+                } else {
+                    jqImageShow.popup('open').one('popupafterclose', function() {
+                        commonUI.hideOverlay();
+                    });
+                }
+            }).attr('src', oPicture['FullPath']).attr('imgidx', idx);
             
         }
     };

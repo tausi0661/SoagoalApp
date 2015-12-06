@@ -13,12 +13,15 @@ $(document).on('pageinit','#pgStudendLife' ,function(e,data){ studentlife.init()
 $(document).on('pageinit','#pgAdvanceService' ,function(e,data){ advanceservice.init(); });
 $(document).on('pageinit','#pgCommonPost' ,function(e,data){ commonpost.init(); });
 $(document).on('pageinit','#pgTranscript' ,function(e,data){ transcript.init(); });
+$(document).on('pageinit','#pgTeacherInfo' ,function(e,data){ teacherinfo.init(); });
 
 $(document).on('pagebeforeshow','#pgHome' ,function(e,data){ homepage.beforeshow(); });
 $(document).on('pagebeforeshow','#pgStudentInfo' ,function(e,data){ studentinfo.beforeshow(); });
 $(document).on('pagebeforeshow','#pgSchoolInfo' ,function(e,data){ schoolinfo.beforeshow(); });
+$(document).on('pagebeforeshow','#pgStudendLife' ,function(e,data){ studentlife.beforeshow(); });
 $(document).on('pagebeforeshow','#pgCommonPost' ,function(e,data){ commonpost.beforeshow(); });
 $(document).on('pagebeforeshow','#pgTranscript' ,function(e,data){ transcript.beforeshow(); });
+$(document).on('pagebeforeshow','#pgTeacherInfo' ,function(e,data){ teacherinfo.beforeshow(); });
 //page init bindings -end
 
 //html ready bindings:
@@ -219,7 +222,14 @@ var commonUI = new function() {
     };
     var hideOverlay = function() {
         $('body>div.common-background-overlay').remove();
-    }
+    };
+    
+    this.showOverlay = function() {
+        showOverlay();
+    };
+    this.hideOverlay = function() {
+        hideOverlay();
+    };
     this.loading = function () {
         showOverlay();
         $.mobile.loading("show");
