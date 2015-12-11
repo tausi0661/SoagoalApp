@@ -17,8 +17,10 @@
         <script type="text/javascript" src="js/jqmDateBox.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/soagoal.js"></script>
-        <script type="text/javascript" src="js/schoolinfo.js"></script>
+        
         <script type="text/javascript" src="js/indexpage.js"></script>
+        <script type="text/javascript" src="js/loginpage.js"></script>
+        <script type="text/javascript" src="js/schoolinfo.js"></script>
         <script type="text/javascript" src="js/studentlife.js"></script>
         <script type="text/javascript" src="js/advanceservice.js"></script>
         <script type="text/javascript" src="js/studentinfo.js"></script>
@@ -26,22 +28,19 @@
         <script type="text/javascript" src="js/commonpost.js"></script>
         <script type="text/javascript" src="js/transript.js"></script>
         <script type="text/javascript" src="js/teacherinfo.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <title>Login</title>
+        <script type="text/javascript" src="js/soagoalCommon.js"></script>
+        <title>Soagoal家校通</title>
     </head>
-    <body>
+    <body onload="globalBodyOnLoad()">
         <!-- common popup - text only post -->
         <div id="popupCommonTextPost" data-role="popup" data-overlay-theme="c">
             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-c ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-            <h3>
+            <h3 id="popupCommonTextPost_Title">
                 我是标题
             </h3>
-            <h5>2015-05-12</h5>
-            <p>
+            <h5 id="popupCommonTextPost_Time">2015-05-12</h5>
+            <p id="popupCommonTextPost_Body">
                 我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文
-            </p>
-            <p>
-                段落二 我是正文段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文 段落二 我是正文
             </p>
         </div>
         <!-- common popup - text only post -->
@@ -63,56 +62,12 @@
         </div>
         <!-- common popup - text only post -->
 
-        <div data-role="page" id="pgIndex">
-            <div data-role="header" data-theme="d" data-position="fixed" data-tap-toggle="false">
-                <h2 id="h2_home_header_logo"> <img src="img/soagoajiaxiaotong.png" height="30" /> </h2>
-            </div>
-            <div role="main" data-role="content" id="div_index_login">
-                <h2>用户登录</h2>
-                <div class="ui-field-contain">
-                    <select name="sel_index_product" id="sel_index_product">
-                        <option value="product1">中山一中国际部</option>
-                        <option value="product2">德州国际领袖学校</option>
-                    </select>
-                </div>
-                <div class="ui-field-contain">
-                    <label for="txt_index_login_username">用户名</label>
-                    <input type="text" data-mini="true" placeholder="用户名" id="txt_index_login_username" value="13702365402" />
-                    <img src="img/icon_man_gray.png" width="15" class="tim-common-input-right-icon" />
-                </div>
-                <div class="ui-field-contain">
-                    <label for="txt_index_login_password">密码</label>
-                    <input type="text" data-mini="true" placeholder="密码" id="txt_index_login_password" value="123456" />
-                    <img src="img/icon_lock_gray.png" width="15" class="tim-common-input-right-icon" />
-                </div>
-                <div class="ui-field-contain">
-                    <button id="btn_index_login" data-theme="b" class="ui-btn ui-mini ui-corner-all">提交</button>
-                </div>
-                <!--
-                <div class="ui-field-contain">
-                    <button id="btn_index_login2" data-theme="b" class="ui-btn ui-mini ui-corner-all">提交2</button>
-                </div>
-                <div class="ui-field-contain">
-                    <button id="btn_index_login3" data-theme="b" class="ui-btn ui-mini ui-corner-all">提交3</button>
-                </div>
-                <div class="ui-field-contain">
-                    <button id="btn_index_login4" data-theme="b" class="ui-btn ui-mini ui-corner-all">提交4</button>
-                </div>
-                <div class="ui-field-contain">
-                    <button id="btn_index_login5" data-theme="b" class="ui-btn ui-mini ui-corner-all">提交5</button>
-                </div>
-                <div class="ui-field-contain">
-                    <button id="btn_index_login6" data-theme="b" class="ui-btn ui-mini ui-corner-all">提交6</button>
-                </div>
-                <div class="ui-field-contain">
-                    <a href="home.html">Home</a>
-                </div>
-                <div class="ui-field-contain">
-                    <a href="http://192.168.1.100:8989/home.html">Home</a>
-                </div>
-                -->
+        <div data-role="page" id="pgIndex" style="background-color:#C1392B">
+            <div>
+                <img src="img/homescreen.png" style="width:100%;" />
             </div>
         </div>
+        
         <!-- panel left menu -->
         <div id="panelMenu" data-theme="c" data-role="panel" data-position="left" data-display="reveal">
             <ul class="common-panel-menu" data-role="listview">
@@ -144,7 +99,7 @@
                 <label for="select" class="ui-hidden-accessable">给谁留言</label>
                 <select data-theme="c" id="sel_messager_object" name="sel_messager_object" data-iconpos="left" data-mini="true" >
                     <option value="0">请选择留言对象</option>
-                    <option value="1">索高管理员</option>
+                    <option value="1">家校通管理员</option>
                     <option value="2">美方负责人-Gary</option>
                     <option value="3">校长信箱</option>
                 </select>

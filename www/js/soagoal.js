@@ -10,4 +10,6 @@ var soagoalConfig = {
     aroundschoolpostsummarylength: 500,
     studentinfopostcount: 20,
     studentinfopostsummarylength: 500,
+    msgcount: 20,
+    msgsummarylength: 500,
 }

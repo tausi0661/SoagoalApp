@@ -60,7 +60,7 @@ var schoolinfo = new function() {
         );
     };
     
-    var htmltag_id = '#id#';
+    var htmltag_id = /#id#/g;
     var htmltag_href = '#href#';
     var htmltag_img = '#img#';
     var htmltag_src = '#src#';
@@ -70,23 +70,31 @@ var schoolinfo = new function() {
     var htmltag_timestamp = '#timestamp#';
     var html_Teacher = '<li class="liTeacherItem"><a href="teacherinfo.html?tid=#id#">'
                 + '<img src="#src#" /><h2>#name#</h2><p>#desc#</p>'
-                + '<a class="tim-schoolinfo-teacher-msg" href="#div_schoolinfo_teachers_messager" data-rel="popup" data-position-to="window" data-transition="pop">留言</a>'
+                + '<a class="tim-schoolinfo-teacher-msg" tid="#id#" href="#" data-rel="popup" data-position-to="window" data-transition="pop">留言</a>'
                 + '</a></li>';
     var html_post = '<li class="liAroundSchoolPost"><a href="commonpost.html?postid=#id#">'
                 + '#img#<h2>#name#</h2><p>#timestamp#</p><p>#desc#</p></a></li>';
     var initData = function() {
         //if (false) {
         if (mdl_TeacherList && mdl_TeacherList.length > 0 && b_teacherlist_inited == false) {
-            var sHTML = '', jqTeacherList = $('#ul_schoolinfo_teachers', jqPage);
+            var sHTML = '', sOptHTML = '', jqTeacherList = $('#ul_schoolinfo_teachers', jqPage);
             for (var i = 0; i < mdl_TeacherList.length; i++) {
                 var oTeacher = mdl_TeacherList[i];
                 sHTML += html_Teacher.replace(htmltag_id, oTeacher['ID'])
                         .replace(htmltag_src, commonUtil.smallPic(oTeacher['PhotoURL']))
                         .replace(htmltag_name, oTeacher['Name'])
                         .replace(htmltag_desc, oTeacher['Description']);
+                
+                sOptHTML += '<option value="' + oTeacher['ID'] + '">' + oTeacher['Name'] + '</option>';
             }
+            
             jqTeacherList.children('li.liTeacherItem').remove();
             jqTeacherList.append(sHTML).listview('refresh');
+            
+            $('a.tim-schoolinfo-teacher-msg', jqTeacherList).on('click', showTeacherMsgDialog);
+            
+            sOptHTML = '<option value="0">请选择留言教师</option>' + sOptHTML;
+            $('#sel_schoolinfo_teachers_object', jqTeacherMessager).html(sOptHTML).selectmenu('refresh', true);
             
             b_teacherlist_inited = true;
         }
@@ -111,6 +119,11 @@ var schoolinfo = new function() {
             b_around_school_inited = true;
         }
     };
+    
+    var showTeacherMsgDialog = function() {
+        $('#sel_schoolinfo_teachers_object', jqTeacherMessager).val($(this).attr('tid')).selectmenu('refresh');
+        jqTeacherMessager.popup('open');
+    };
 
     var handleTeacherMessagerSubmit = function() {
 
@@ -121,7 +134,7 @@ var schoolinfo = new function() {
         var bValidation = true;
         var jqSelTeacher = jqTeacherMessager.find('#sel_schoolinfo_teachers_object');
         var jqTxtContent = jqTeacherMessager.find('#txt_schoolinfo_teachers_content');
-        if (jqSelTeacher.val() == '0') {
+        if (jqSelTeacher.val() == '0' || jqSelTeacher.val() == '') {
             commonUI.displayFormError(jqSelTeacher, '请选择想要留言的老师');
             bValidation = false;
         }
@@ -132,11 +145,18 @@ var schoolinfo = new function() {
 
         commonUI.loaded();
         if (bValidation) {
-            jqTeacherMessager.one('popupafterclose', function(){
-                commonUI.commonDialog('留言发送成功', '留言发送成功, 服务最快会在48小时内有回复(视留言对象而定).', function() {
-                    console.log('dialog closed...');
-                });
-            }).popup('close');
+            ajaxor.ajax('postteachermessage',
+                'tid=' + jqSelTeacher.val() + '&body=' + jqTxtContent.val(),
+                function(oResult) {
+                    if (oResult.IsSuccessful) {
+                        jqTeacherMessager.one('popupafterclose', function(){
+                            commonUI.commonDialog('留言发送成功', '留言发送成功, 我们会尽快处理您的留言.');
+                        }).popup('close');
+                    } else {
+                        commonUI.commonDialog('留言发送失败', oResult.Message, null, true);
+                    }
+                }
+            );
         }
     }
 };

@@ -565,6 +565,9 @@ a { -webkit-user-select: none !important; }
 #ul_advanceservice_list > li > a:after {
     background: none
 }
+#ul_advanceservice_list > li > a > p.msg_timestamp {
+    font-size: 0.7em;
+}
 
 #div_advanceservice_pickup,
 #div_advanceservice_invitation,

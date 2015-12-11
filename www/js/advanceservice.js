@@ -3,6 +3,8 @@ var advanceservice = new function() {
     var jqPopupPickUp = null;
     var jqPopupInvitation = null;
     var jqPopupApplication = null;
+    
+    var mdl_MsgList = null;
 
     this.init = function() {
         console.log('advanceservice initing.....');
@@ -28,6 +30,60 @@ var advanceservice = new function() {
            popupafteropen: function(){ $('body').on('touchmove', false); },
            popupafterclose: function(){ $('body').off('touchmove'); }
         });
+    };
+    
+    this.beforeshow = function() {
+        ajaxor.ajax('listmsg', 
+            'msgcount=' + soagoalConfig.msgcount + '&msgsummarylength=' + soagoalConfig.msgsummarylength,
+            function(oResult) {
+                if (oResult.IsSuccessful) {
+                    mdl_MsgList = oResult.ResultObj;
+                    initData();
+                } else {
+                    commonUI.commonDialog('读取数据失败', oResult.Message, null, true);
+                }
+            }
+        );
+    };
+    
+    var sHTMLItem = '<li class="msg_item">'
+                  + ' <a href="#" msgidx="#msgidx#" data-rel="popup" data-position-to="window" data-transition="pop" class="a_advanceservice_msg_notice">'
+                  + '  <h4>-#title#</h4>'
+                  + '  <p class="msg_timestamp">#timestamp#</p>'
+                  + '  <p>#summary#</p>'
+                  + ' </a>'
+                  + '</li>';
+    var initData = function() {
+        var sHTML = '';
+        if (mdl_MsgList && mdl_MsgList.length > 0) {
+            for (var i = 0; i < mdl_MsgList.length; i++) {
+                var oMsg = mdl_MsgList[i];
+                sHTML += sHTMLItem.replace('#msgidx#', i)
+                            .replace('#title#', oMsg['Subject'])
+                            .replace('#timestamp#', oMsg['CreateTime'])
+                            .replace('#summary#', oMsg['ReplyShort'] ? '[回复]: ' + oMsg['ReplyShort'] : '暂未回复, 请耐心等待.');
+            }
+        } else {
+            sHTML = '<li class="msg_item">没有消息</li>';
+        }
+        
+        var jqUL = $('#ul_advanceservice_list', jqPage);
+        jqUL.find('li.msg_item').remove();
+        jqUL.append(sHTML).listview('refresh').find('a.a_advanceservice_msg_notice').on('click', showMsgDetail);
+        
+    };
+    
+    var showMsgDetail = function() {
+        if (mdl_MsgList && mdl_MsgList.length > 0) {
+            var idx = parseInt($(this).attr('msgidx'));
+            var oMsg = mdl_MsgList[idx];
+            if (oMsg) {
+                $('#popupCommonTextPost_Title', gbl_popupCommonTextPost).html(oMsg['Subject']);
+                $('#popupCommonTextPost_Time', gbl_popupCommonTextPost).html(oMsg['CreateTime']);
+                $('#popupCommonTextPost_Body', gbl_popupCommonTextPost).html(oMsg['ReplyBody']);
+                gbl_popupCommonTextPost.popup('open');
+            }
+        }
     };
 
     var handlePickUpFormSubmit = function() {
