@@ -1,6 +1,6 @@
 var soagoalConfig = {
     https: false,
-    product1: 'http://192.168.1.100:8988',
+    product1: 'http://appadmin.soagoal.com',
     api: '/AppClient/ClientAPI.aspx',
     
     homepostcount: 5,

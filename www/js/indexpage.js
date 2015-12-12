@@ -36,8 +36,11 @@ var indexpage = new function() {
                         $.mobile.loading("hide");
                         
                         if (oResult.IsSuccessful) {
+                            gbl_mdl_ParentLogin = oResult.ResultObj
                             initData();
-                            $.mobile.changePage("home.html", { transition: "slide" });
+                            writeToProfile(gbl_mdl_ParentLogin, function() {
+                                $.mobile.changePage("home.html", { transition: "slide" });
+                            });
                         } else {
                             commonUI.commonDialog('登录信息已过期', oResult.Message, function() {
                                 $.mobile.changePage("login.html", { transition: "slide" });

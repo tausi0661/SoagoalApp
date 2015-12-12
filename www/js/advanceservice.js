@@ -64,7 +64,7 @@ var advanceservice = new function() {
                             .replace('#summary#', oMsg['ReplyShort'] ? '[回复]: ' + oMsg['ReplyShort'] : '暂未回复, 请耐心等待.');
             }
         } else {
-            sHTML = '<li class="msg_item">没有消息</li>';
+            sHTML = '<li class="msg_item"><a>没有消息</a></li>';
         }
         
         var jqUL = $('#ul_advanceservice_list', jqPage);
