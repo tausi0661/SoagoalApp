@@ -19,6 +19,7 @@ var indexpage = new function() {
         } else {
             console.log('=====is phone 000 =====');
             setTimeout('$.mobile.loading("hide"); $.mobile.changePage("login.html", { transition: "slide" });', 5000);
+            //setTimeout('$.mobile.loading("hide"); $.mobile.changePage("teachervote.html", { transition: "slide" });', 5000);
         }
     };
     

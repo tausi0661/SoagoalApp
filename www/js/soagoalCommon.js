@@ -15,6 +15,7 @@ $(document).on('pageinit','#pgAdvanceService' ,function(e,data){ commonFooterUpd
 $(document).on('pageinit','#pgCommonPost' ,function(e,data){ commonpost.init(); });
 $(document).on('pageinit','#pgTranscript' ,function(e,data){ transcript.init(); });
 $(document).on('pageinit','#pgTeacherInfo' ,function(e,data){ teacherinfo.init(); });
+$(document).on('pageinit','#pgTeacherVote' ,function(e,data){ teachervote.init(); });
 
 $(document).on('pagebeforeshow','#pgIndex' ,function(e,data){ indexpage.beforeshow(); });
 $(document).on('pagebeforeshow','#pgLogin' ,function(e,data){ loginpage.beforeshow(); });
@@ -26,6 +27,7 @@ $(document).on('pagebeforeshow','#pgAdvanceService' ,function(e,data){ advancese
 $(document).on('pagebeforeshow','#pgCommonPost' ,function(e,data){ commonpost.beforeshow(); });
 $(document).on('pagebeforeshow','#pgTranscript' ,function(e,data){ transcript.beforeshow(); });
 $(document).on('pagebeforeshow','#pgTeacherInfo' ,function(e,data){ teacherinfo.beforeshow(); });
+$(document).on('pagebeforeshow','#pgTeacherVote' ,function(e,data){ teachervote.beforeshow(); });
 
 function commonFooterUpdate(event, callback) {
     //update footer active one:

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>教师问卷调查</title>
+    </head>
+    <body>
+        <div data-role="page" id="pgTeacherVote">
+            <div data-theme="d" data-role="header" data-add-back-btn="true" data-back-btn-text="返回" data-position="fixed" data-tap-toggle="false">
+                <!-- <a href="#home.html" data-direction="reverse" data-icon="back">back</a> -->
+                <!--<h2> <img src="img/test.png" height="35" /> </h2>-->
+                <h2 id="h2_home_header_logo"> <img src="img/soagoajiaxiaotong.png" height="30" /> </h2>
+            </div>
+            <div role="main" data-role="content">
+                <div id="div_teachervote_maincontent" class="tim-main-content">
+                    <h3 id="h3_transcript_title">家长、学生对教师调查问卷</h3>
+                    <div style="border-top:1px solid #ddd;">
+                        <div style="width:25%; float:left;">
+                            <ul data-theme="c" id="ul_teachervote_teachers">
+                            </ul>
+                        </div>
+                        <div id="div_teachervote_items">
+                            <div id="div_teachervote_className">英语口语:</div>
+                            <ul class="ul_teachervote_items" data-inset="true" data-divider-theme="c">
+                                <li data-role="list-divider">学习与活动</li>
+                                <!--
+                                <li class="ui-field-contain">
+                                    <label for="select-choice-1">尊重、关心、爱护并公平对待学生。尊重、关心、爱护并公平对待学生。</label>
+                                    <select name="select-choice-1" id="select-choice-1" data-mini="true" data-theme="c">
+                                        <option value="standard">1</option>
+                                        <option value="rush">2</option>
+                                        <option value="express">3</option>
+                                        <option value="overnight">4</option>
+                                    </select>
+                                </li>
+                                -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
