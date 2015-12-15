@@ -5,6 +5,7 @@ var advanceservice = new function() {
     var jqPopupApplication = null;
     
     var mdl_MsgList = null;
+    var mdl_VoteItems = null;
 
     this.init = function() {
         console.log('advanceservice initing.....');
@@ -37,7 +38,8 @@ var advanceservice = new function() {
             'msgcount=' + soagoalConfig.msgcount + '&msgsummarylength=' + soagoalConfig.msgsummarylength,
             function(oResult) {
                 if (oResult.IsSuccessful) {
-                    mdl_MsgList = oResult.ResultObj;
+                    mdl_MsgList = oResult.ResultObj.MessageList;
+                    mdl_VoteItems = oResult.ResultObj.VoteItems;
                     initData();
                 } else {
                     commonUI.commonDialog('读取数据失败', oResult.Message, null, true);
