@@ -694,6 +694,9 @@ a { -webkit-user-select: none !important; }
 #ul_teachervote_teachers {margin: 25px 0 0 0;}
 #ul_teachervote_teachers > li {border-color:#ddd;background-color:#eee; font-size:0.8em;padding:8px 0 8px 8px;}
 #ul_teachervote_teachers > li.current-select {background-color:#fff;}
+#ul_teachervote_teachers > li.not-all-voted { color: #c1392b; }
+
+#btn_teachervote_submit {font-size:11px; margin: 5px;}
 
 #div_teachervote_items {width:72%;float:left; margin:0;}
 #div_teachervote_className {font-size:1em; padding:5px;height:25px;}
@@ -702,5 +705,8 @@ a { -webkit-user-select: none !important; }
 #div_teachervote_items > .ul_teachervote_items > li > label {max-width: 65%; font-size:0.8em;white-space:normal;}
 #div_teachervote_items > .ul_teachervote_items > li.ui-field-contain > label {float:left;}
 #div_teachervote_items > .ul_teachervote_items > li.ui-field-contain > div.ui-select > div.ui-btn {width:15px;float:right; margin-top:2px;}
+
+
+
 /*------------end teacher vote page-------------*/
 

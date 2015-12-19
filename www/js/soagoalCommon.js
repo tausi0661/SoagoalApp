@@ -325,8 +325,19 @@ var ajaxor = new function() {
     
     this.ajax = function(cmd, data, callback, errorCallback) {
         commonUI.loading();
-        var param = (data && data.length > 0 ? data + '&' : '') + 'ajax=1&cmd=' + cmd;
-        if (cmd != 'parentlogin') param += '&hash=' + encodeURIComponent(gbl_mdl_ParentLogin['Hash']) + '&parentid=' + gbl_mdl_ParentLogin['ParentID'];
+        var param = data;
+        if ($.isPlainObject(param)) {
+            param.ajax = 1;
+            param.cmd = cmd;
+            if (cmd != 'parentlogin') {
+                param.hash = gbl_mdl_ParentLogin['Hash'];
+                param.parentid = gbl_mdl_ParentLogin['ParentID'];
+            }
+        } else {
+            param = (data && data.length > 0 ? data + '&' : '') + 'ajax=1&cmd=' + cmd;
+            if (cmd != 'parentlogin') param += '&hash=' + encodeURIComponent(gbl_mdl_ParentLogin['Hash']) + '&parentid=' + gbl_mdl_ParentLogin['ParentID'];
+        }
+        
         console.log('~~~~~ajax ready3~~~~~' + apiURL);
         $.ajax({
             url: apiURL,
