@@ -37,15 +37,25 @@
             var oScoreEntry = arrScoreEntryList[i];
             sHTML += '<tr class="transcriptScoreEntry">'
                    + '  <td>' + oScoreEntry['RRealClassName'] + '</td>'
+                   + '  <td>' + oScoreEntry['Level'] + '</td>'
                    + '  <td>' + oScoreEntry['Score'] + '</td>'
                    + '  <td><a href="teacherinfo.html?tid=' + oScoreEntry['RTeacherID'] + '" data-transition="slide">' + oScoreEntry['RTeacherName'] + ' </a> ></td>'
                    + '</tr>'
                    + '<tr class="transcriptScoreEntry transcriptScoreEntry-Comment">'
-                   + '  <td colspan="3"><span>评语: </span>' + oScoreEntry['Comment'] + '</td>'
+                   + '  <td colspan="4"><span>评语: </span>' + oScoreEntry['Comment'] + '</td>'
                    + '</tr>'
                    + '<tr class="transcriptScoreEntry transcriptScoreEntry-Comment">'
-                   + '  <td colspan="3">&nbsp;</td>'
+                   + '  <td colspan="4">&nbsp;</td>'
                    + '</tr>';
+        }
+        
+        if (oTranscript['Comment'] != '') {
+            sHTML += '<tr class="transcriptScoreEntry">'
+                   + ' <td colspan="4"><b>综合评价:</b></td>'
+                   + '</tr>'
+                   + '<tr class="transcriptScoreEntry">'
+                   + ' <td colspan="4">' + oTranscript['Comment'] + '</td>'
+                   + '</tr>'
         }
         //jqTbl.find('tr.transcriptScoreEntry').remove();
         jqTbl.children('tbody').empty().html(sHTML);
