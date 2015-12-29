@@ -1,7 +1,9 @@
 //global variables:
+var gbl_version = '1.01.20160101';
 var gbl_Domain = soagoalConfig.product1;
 var gbl_PostDic = {};
 var gbl_mdl_ParentLogin = null;
+var gbl_mobile_platform = '';
 //global variables -end
 
 //page init bindings:
@@ -16,6 +18,7 @@ $(document).on('pageinit','#pgCommonPost' ,function(e,data){ commonpost.init(); 
 $(document).on('pageinit','#pgTranscript' ,function(e,data){ transcript.init(); });
 $(document).on('pageinit','#pgTeacherInfo' ,function(e,data){ teacherinfo.init(); });
 $(document).on('pageinit','#pgTeacherVote' ,function(e,data){ teachervote.init(); });
+$(document).on('pageinit','#pgSettings' ,function(e,data){ settings.init(); });
 
 $(document).on('pagebeforeshow','#pgIndex' ,function(e,data){ indexpage.beforeshow(); });
 $(document).on('pagebeforeshow','#pgLogin' ,function(e,data){ loginpage.beforeshow(); });
@@ -28,6 +31,7 @@ $(document).on('pagebeforeshow','#pgCommonPost' ,function(e,data){ commonpost.be
 $(document).on('pagebeforeshow','#pgTranscript' ,function(e,data){ transcript.beforeshow(); });
 $(document).on('pagebeforeshow','#pgTeacherInfo' ,function(e,data){ teacherinfo.beforeshow(); });
 $(document).on('pagebeforeshow','#pgTeacherVote' ,function(e,data){ teachervote.beforeshow(); });
+$(document).on('pagebeforeshow','#pgSettings' ,function(e,data){ settings.beforeshow(); });
 
 function commonFooterUpdate(event, callback) {
     //update footer active one:
@@ -74,6 +78,7 @@ function globalBodyOnLoad() {
         console.log('model: ' + d.model);
         console.log('platform: ' + d.platform);
         console.log('version: ' + d.version);
+        gbl_mobile_platform = d.platform;
         if (d.platform == 'iOS') {
             console.log('--------is iOS----------');
             $('<style type="text/css">div.ui-header-fixed {padding-top: 20px;} div.ui-header-fixed > a.ui-btn {margin-top: 20px;}</style>').appendTo("head");
@@ -329,12 +334,13 @@ var ajaxor = new function() {
         if ($.isPlainObject(param)) {
             param.ajax = 1;
             param.cmd = cmd;
+            param.mobileplatform = gbl_mobile_platform;
             if (cmd != 'parentlogin') {
                 param.hash = gbl_mdl_ParentLogin['Hash'];
                 param.parentid = gbl_mdl_ParentLogin['ParentID'];
             }
         } else {
-            param = (data && data.length > 0 ? data + '&' : '') + 'ajax=1&cmd=' + cmd;
+            param = (data && data.length > 0 ? data + '&' : '') + 'ajax=1&cmd=' + cmd + '&mobileplatform=' + gbl_mobile_platform;
             if (cmd != 'parentlogin') param += '&hash=' + encodeURIComponent(gbl_mdl_ParentLogin['Hash']) + '&parentid=' + gbl_mdl_ParentLogin['ParentID'];
         }
         

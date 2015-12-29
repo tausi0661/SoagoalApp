@@ -710,3 +710,17 @@ a { -webkit-user-select: none !important; }
 
 /*------------end teacher vote page-------------*/
 
+/*---------------settings page--------------*/
+#div_settings_avatar {margin-top: 10px; margin-bottom:30px; text-align: center; width: 100%;}
+#div_settings_avatar img.avatar {border-radius: 60px; margin-top: 25px; width: calc(100% / 3);}
+#div_settings_menugroup {font-size:0.9em; padding: 0 15px;}
+#div_settings_menugroup .settings-menu-item {margin-top:1px;}
+#div_settings_menugroup .settings-menu-item:first-child {margin-top:0;}
+#div_settings_menugroup .settings-menu-item a {font-weight:normal;}
+#div_settings_menugroup .settings-menu-item .ui-collapsible-content {border-color: #f2f2f2;}
+#div_settings_menugroup a.ui-btn.itembtn {font-size:11px; background: #16a085 none repeat scroll 0 0; border-color: #16a085; color: #fff;}
+
+#div_settings_changepassword div.ui-field-contain {padding:0.3em;}
+#div_settings_changepassword div.ui-field-contain div.ui-input-text {margin:0;background-color:#ffffff;}
+
+/*---------------end settings page--------------*/

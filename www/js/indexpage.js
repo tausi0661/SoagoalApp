@@ -83,7 +83,7 @@ var indexpage = new function() {
             bValidation = false;
         }
         if (jqTxtSubject.val()) {
-            if (jqTxtSubject.val() > 20) {
+            if (jqTxtSubject.val().length > 20) {
                 commonUI.displayFormError(jqTxtSubject, '标题不能超过20个字符.');
                 bValidation = false;
             }
