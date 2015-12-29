@@ -1,7 +1,9 @@
-var soagoalConfig = {
+﻿var soagoalConfig = {
     https: false,
     product1: 'http://appadmin.soagoal.com',
     api: '/AppClient/ClientAPI.aspx',
+    apphome: 'http://gjb.zsyz.org/soagoalapp',
+    apptitle: '中山一中国际部',
     
     homepostcount: 5,
     postsummarylength: 200,

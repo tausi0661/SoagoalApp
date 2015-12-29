@@ -12,6 +12,8 @@
     
     this.beforeshow = function() {
         logger.debug('settings beforeshow.....');
+        $('#img_settings_avatar', jqPage).attr('src', commonUtil.smallPic(gbl_mdl_ParentLogin['PhotoURL']));
+        $('#span_settings_studentname', jqPage).html(gbl_mdl_ParentLogin['RStudentName']);
     };
     
     var changepasswordSubmit = function() {
@@ -72,7 +74,9 @@
                     if (oResult.ResultObj == gbl_version) {
                         commonUI.commonDialog('版本检查', '当前已是最新版本', null, true);
                     } else {
-                        commonUI.commonDialog('版本检查', '当前版本已过期, 最新版本为[' + oResult.ResultObj + ']', null, true);
+                        commonUI.commonDialog('版本检查', '当前版本已过期, 最新版本为[' + oResult.ResultObj + ']', function() {
+                            commonUtil.openExternalURL(soagoalConfig.apphome);
+                        }, true);
                     }
                 } else {
                     commonUI.commonDialog('版本检查失败', oResult.Message, null, true);

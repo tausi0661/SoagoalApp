@@ -4,6 +4,7 @@ var gbl_Domain = soagoalConfig.product1;
 var gbl_PostDic = {};
 var gbl_mdl_ParentLogin = null;
 var gbl_mobile_platform = '';
+var gbl_mobile_info = '';
 //global variables -end
 
 //page init bindings:
@@ -75,10 +76,9 @@ function globalBodyOnLoad() {
         
         var d = window.device;
         console.log('--------ondevice ready----------');
-        console.log('model: ' + d.model);
-        console.log('platform: ' + d.platform);
-        console.log('version: ' + d.version);
         gbl_mobile_platform = d.platform;
+        gbl_mobile_info = d.model + '_' + d.platform + '_' + d.version;
+        console.log('gbl_mobile_info: ' + gbl_mobile_info);
         if (d.platform == 'iOS') {
             console.log('--------is iOS----------');
             $('<style type="text/css">div.ui-header-fixed {padding-top: 20px;} div.ui-header-fixed > a.ui-btn {margin-top: 20px;}</style>').appendTo("head");
@@ -164,7 +164,7 @@ function readFromProfile(callback, errorCallback) {
         currentMethod = 'gotFileReader';
         var reader = new FileReader();
         reader.onloadend = function(evt) {
-            //console.log("----Read as text:" + reader.result);
+            console.log("----Read as text:" + reader.result);
             try {
                 globalProfile = JSON.parse(reader.result);
                 console.log('globalProfile["ParentID"]: ' + globalProfile["ParentID"]);
@@ -306,6 +306,17 @@ var commonUtil = new function() {
         }
         return newURL;
     };
+    
+    this.openExternalURL = function(url) {
+    
+        if (cordova.InAppBrowser) {
+            // Mobile device.
+            var ref = cordova.InAppBrowser.open(url, '_system');
+        } else {
+            // Possible web browser
+            window.open(url, "_system");
+        }
+    };
 };
 
 var commonConst = new function() {
@@ -335,13 +346,19 @@ var ajaxor = new function() {
             param.ajax = 1;
             param.cmd = cmd;
             param.mobileplatform = gbl_mobile_platform;
-            if (cmd != 'parentlogin') {
+            if (cmd == 'parentlogin') {
+                param.mobileinfo = gbl_mobile_info;
+            } else {
                 param.hash = gbl_mdl_ParentLogin['Hash'];
                 param.parentid = gbl_mdl_ParentLogin['ParentID'];
             }
         } else {
             param = (data && data.length > 0 ? data + '&' : '') + 'ajax=1&cmd=' + cmd + '&mobileplatform=' + gbl_mobile_platform;
-            if (cmd != 'parentlogin') param += '&hash=' + encodeURIComponent(gbl_mdl_ParentLogin['Hash']) + '&parentid=' + gbl_mdl_ParentLogin['ParentID'];
+            if (cmd == 'parentlogin') {
+                param += '&mobileinfo=' + gbl_mobile_info;
+            } else {
+                param += '&hash=' + encodeURIComponent(gbl_mdl_ParentLogin['Hash']) + '&parentid=' + gbl_mdl_ParentLogin['ParentID'];
+            }
         }
         
         console.log('~~~~~ajax ready3~~~~~' + apiURL);

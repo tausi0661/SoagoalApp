@@ -1,15 +1,21 @@
 var indexpage = new function() {
     var jqPage = null;
+    var jqAboutUs = null;
     var jqPanelMenu = null;
     var jqPanelMessager = null;
 
     this.init = function() {
         console.log('indexpage initing.....');
         jqPage = $('body > div#pgIndex');
+        jqAboutUs = $('div#popupAboutUs');
         jqPanelMenu = $('div#panelMenu');
         jqPanelMessager = $('div#panelMessager');
         
         $('button', jqPanelMessager).click( handlePanelMessagerSubmit );
+        
+        $('#popupAboutUs_Title', jqAboutUs).html(soagoalConfig.apptitle);
+        $('#popupAboutUs_Version', jqAboutUs).html(gbl_version);
+        
     };
     
     this.beforeshow = function() {
@@ -19,10 +25,10 @@ var indexpage = new function() {
         } else {
             console.log('=====is phone 000 =====');
             setTimeout('$.mobile.loading("hide"); $.mobile.changePage("login.html", { transition: "slide" });', 5000);
-            //setTimeout('$.mobile.loading("hide"); $.mobile.changePage("teachervote.html", { transition: "slide" });', 5000);
         }
     };
     
+    //is invoked from  initFileSystem() in soagoalCommon.js
     this.profileChecking = function() {
         console.log('-----profileChecking-------');
         readFromProfile(function() {
@@ -40,7 +46,9 @@ var indexpage = new function() {
                             gbl_mdl_ParentLogin = oResult.ResultObj
                             initData();
                             writeToProfile(gbl_mdl_ParentLogin, function() {
+                                console.log('-----writeToProfile callback-------');
                                 $.mobile.changePage("home.html", { transition: "slide" });
+                                console.log('-----changed to home.html -------');
                             });
                         } else {
                             commonUI.commonDialog('登录信息已过期', oResult.Message, function() {
@@ -65,7 +73,7 @@ var indexpage = new function() {
             $('#img_panelMenu_avatar', jqPanelMenu).attr('src', commonUtil.smallPic(gbl_mdl_ParentLogin['PhotoURL']));
             $('#span_panelMenu_studentname', jqPanelMenu).html(gbl_mdl_ParentLogin['RStudentName']);
             
-            $('#sel_messager_object').empty().append('<option value="">请选择留言对象</option>' + gbl_mdl_ParentLogin['MsgReceiverHTML']).selectmenu('refresh', true);
+            //$('#sel_messager_object').empty().append('<option value="">请选择留言对象</option>' + gbl_mdl_ParentLogin['MsgReceiverHTML']).selectmenu('refresh', true);
         }
     };
 

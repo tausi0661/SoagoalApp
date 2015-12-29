@@ -44,7 +44,9 @@
                         var oScoreEntry = oGroupInfo['ScoreEntries'][i];
                         sHTML += '<table><tr><td colspan="4">[成绩单] -陈婉婷2015学年秋季 -单元测验</td></tr><tr>'
                                + '  <th>分数</th><td>' + oScoreEntry['Score'] + '</td>'
-                               + '  <th>评语</th><td>' + oScoreEntry['Comment'] + '</td>'
+                               + '  <th>分层</th><td>' + oScoreEntry['Level'] + '</td>'
+                               + '</tr><tr>'
+                               + '  <th>评语</th><td colspan="3">' + oScoreEntry['Comment'] + '</td>'
                                + '</tr><tr>'
                                + '  <!--<th>成绩单</th><td colspan="3">' + oScoreEntry['RTranscriptName'] + '</td>-->'
                                + '</tr></table>';

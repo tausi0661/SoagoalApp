@@ -259,6 +259,7 @@ a { -webkit-user-select: none !important; }
 #div_home_header_name_datetime {
     background:none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
     height: 22px;
+    margin-left: -1px;
 }
 #div_home_header_student_name {
     display: inline-block;

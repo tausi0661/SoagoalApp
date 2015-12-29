@@ -151,16 +151,15 @@
     };
     
     var initTranscript = function(transcriptList) {
-        if (transcriptList && transcriptList.length > 0) {
-            var sHTML1 = '';
-            var jqListView = $('#div_studentinfo_transcriptlist > ul', jqGradeList);
-            jqListView.children('li').remove();
-            for (var i = 0; i < transcriptList.length; i++) {
-                var oTranscript = transcriptList[i];
-                sHTML1 += html_transcript.replace(htmltag_id, oTranscript['ID'])
-                                    .replace(htmltag_name, oTranscript['Name']);
-            }
-            jqListView.append(sHTML1).listview('refresh');
+        
+        var sHTML1 = '';
+        var jqListView = $('#div_studentinfo_transcriptlist > ul', jqGradeList);
+        jqListView.children('li').remove();
+        for (var i = 0; i < transcriptList.length; i++) {
+            var oTranscript = transcriptList[i];
+            sHTML1 += html_transcript.replace(htmltag_id, oTranscript['ID'])
+                                .replace(htmltag_name, oTranscript['Name']);
         }
+        jqListView.append(sHTML1).listview('refresh');
     };
 };
