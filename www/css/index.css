@@ -145,6 +145,9 @@ a { -webkit-user-select: none !important; }
     max-height: 400px;
     overflow: auto;
 }
+#popupCommonTextPost > #popupCommonTextPost_Title {
+    margin-top: 25px;
+}
 #popupCommonTextPost > a.ui-icon-delete {
     right:1px;
     top:1px;
@@ -268,10 +271,10 @@ a { -webkit-user-select: none !important; }
     padding-top: 2px;
 }
 #div_home_header_datetime_text {
-    display: inline-block;
-    margin-left: calc(100% - 230px);
-    font-size: 0.8em;
-    padding-top: 2px;
+    float: right;
+    font-size: 0.7em;
+    margin-right: 5px;
+    margin-top: 3px;
 }
 #div_home_banner {
     width:100%;

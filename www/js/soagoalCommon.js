@@ -165,13 +165,18 @@ function readFromProfile(callback, errorCallback) {
         var reader = new FileReader();
         reader.onloadend = function(evt) {
             console.log("----Read as text:" + reader.result);
-            try {
-                globalProfile = JSON.parse(reader.result);
-                console.log('globalProfile["ParentID"]: ' + globalProfile["ParentID"]);
+            if (reader.result && reader.result != '') {
+                try {
+                    globalProfile = JSON.parse(reader.result);
+                    console.log('globalProfile["ParentID"]: ' + globalProfile["ParentID"]);
+                    if (callback) callback();
+                } catch (e) { 
+                    console.log("----JSON.parse [ERROR]" + e.message + '--' + e.description + '--' + e.number);
+                    if (errorCallback) errorCallback();
+                }
+            } else {
+                console.log('-----globalProfile is empty...');
                 if (callback) callback();
-            } catch (e) { 
-                console.log("----JSON.parse [ERROR]" + e.message + '--' + e.description + '--' + e.number);
-                if (errorCallback) errorCallback();
             }
         };
         reader.readAsText(file);
@@ -309,7 +314,7 @@ var commonUtil = new function() {
     
     this.openExternalURL = function(url) {
     
-        if (cordova.InAppBrowser) {
+        if (typeof(cordova) != 'undefined' && cordova.InAppBrowser) {
             // Mobile device.
             var ref = cordova.InAppBrowser.open(url, '_system');
         } else {

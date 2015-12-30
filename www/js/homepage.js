@@ -42,7 +42,7 @@ var homepage = new function() {
         //数据加载成功:
         if (gbl_mdl_ParentLogin) {
             $('#span_home_header_student_name', jqPage).html(gbl_mdl_ParentLogin['RStudentName']);
-            $('#div_home_header_datetime_text', jqPage).html(gbl_mdl_ParentLogin['LastLoginTime']);
+            $('#div_home_header_datetime_text', jqPage).html('上次登录: ' + gbl_mdl_ParentLogin['LastLoginTime']);
             
             //posts:
             if (mdl_HomePagePosts) {

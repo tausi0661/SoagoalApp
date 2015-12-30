@@ -60,6 +60,9 @@ var indexpage = new function() {
                         $.mobile.changePage("login.html", { transition: "slide" });
                     }
                 );
+            } else {
+                //no profile found:
+                $.mobile.changePage("login.html", { transition: "slide" });
             }
         }, function() {
             //if there's any error when reading profile:
