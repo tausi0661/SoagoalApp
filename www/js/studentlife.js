@@ -4,7 +4,7 @@
     var mdl_PostLists = null;
 
     this.init = function() {
-        console.log('studentlife initing.....');
+        logger.debug('studentlife init.....');
         jqPage = $('body > div#pgStudendLife');
     };
     

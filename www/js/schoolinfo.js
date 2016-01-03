@@ -9,7 +9,7 @@ var schoolinfo = new function() {
     var b_around_school_inited = false;
 
     this.init = function() {
-        console.log('schoolinfo initing.....');
+        logger.debug('schoolinfo initing.....');
         jqPage = $('body > div#pgSchoolInfo');
         jqTeacherMessager = $('div#div_schoolinfo_teachers_messager', jqPage);
 

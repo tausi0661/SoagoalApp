@@ -37,7 +37,6 @@ $(document).on('pagebeforeshow','#pgSettings' ,function(e,data){ settings.before
 function commonFooterUpdate(event, callback) {
     //update footer active one:
     var baseURI = event.target.baseURI;
-    console.log('----baseURI:' + baseURI);
     $('div[data-role="footer"]>div>ul>li>a').each(function() {
         var jqThis = $(this);
         if (baseURI.indexOf(jqThis.attr('href')) > 0) {
@@ -164,7 +163,6 @@ function readFromProfile(callback, errorCallback) {
         currentMethod = 'gotFileReader';
         var reader = new FileReader();
         reader.onloadend = function(evt) {
-            console.log("----Read as text:" + reader.result);
             if (reader.result && reader.result != '') {
                 try {
                     globalProfile = JSON.parse(reader.result);
@@ -175,7 +173,6 @@ function readFromProfile(callback, errorCallback) {
                     if (errorCallback) errorCallback();
                 }
             } else {
-                console.log('-----globalProfile is empty...');
                 if (callback) callback();
             }
         };
@@ -339,10 +336,10 @@ var ajaxor = new function() {
     
     var apiURL = commonUtil.combineURL(gbl_Domain, soagoalConfig.api);
     
-    this.setProduct = function(productVal) {
+    /*this.setProduct = function(productVal) {
         if (productVal && soagoalConfig[productVal]) gbl_Domain = soagoalConfig[productVal];
         apiURL = commonUtil.combineURL(gbl_Domain, soagoalConfig.api);
-    };
+    };*/
     
     this.ajax = function(cmd, data, callback, errorCallback) {
         commonUI.loading();
@@ -366,7 +363,6 @@ var ajaxor = new function() {
             }
         }
         
-        console.log('~~~~~ajax ready3~~~~~' + apiURL);
         $.ajax({
             url: apiURL,
             type: "POST",

@@ -5,7 +5,7 @@ var indexpage = new function() {
     var jqPanelMessager = null;
 
     this.init = function() {
-        console.log('indexpage initing.....');
+        logger.debug('indexpage initing.....');
         jqPage = $('body > div#pgIndex');
         jqAboutUs = $('div#popupAboutUs');
         jqPanelMenu = $('div#panelMenu');
@@ -21,9 +21,9 @@ var indexpage = new function() {
     this.beforeshow = function() {
         if(document.URL.indexOf("http://") === -1 
             && document.URL.indexOf("https://") === -1) {
-            console.log('=====is phone2=====');
+            //nothing to do
         } else {
-            console.log('=====is phone 000 =====');
+            logger.debug('=====is phone 000 =====');
             setTimeout('$.mobile.loading("hide"); $.mobile.changePage("login.html", { transition: "slide" });', 5000);
         }
     };
@@ -34,7 +34,6 @@ var indexpage = new function() {
         readFromProfile(function() {
             console.log('-----begin profileChecking-------');
             gbl_mdl_ParentLogin = globalProfile;
-            console.log('gbl_mdl_ParentLogin: ' + gbl_mdl_ParentLogin['ParentID'])
             if (gbl_mdl_ParentLogin && gbl_mdl_ParentLogin['Hash']) {
                 console.log('-----begin to ajax-------');
                 ajaxor.ajax('api', 'tim=wang',

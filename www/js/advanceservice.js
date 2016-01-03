@@ -7,7 +7,7 @@ var advanceservice = new function() {
     var mdl_MsgList = null;
 
     this.init = function() {
-        console.log('advanceservice initing.....');
+        logger.debug('advanceservice initing.....');
         jqPage = $('body > div#pgAdvanceService');
         jqPopupPickUp = $('div#div_advanceservice_pickup', jqPage);
         jqPopupInvitation = $('div#div_advanceservice_invitation', jqPage);
@@ -87,7 +87,6 @@ var advanceservice = new function() {
     };
 
     var handlePickUpFormSubmit = function() {
-        console.log('handlePickUpFormSubmit');
         
         commonUI.loading();
         commonUI.clearFormError(jqPopupPickUp);
@@ -110,7 +109,7 @@ var advanceservice = new function() {
         if (bValidation) {
             jqPopupPickUp.one('popupafterclose', function(){
                 commonUI.commonDialog('接机申请发送成功', '接机申请发送成功, 系统管理员会在处理您的申请后与您联系.', function() {
-                    console.log('dialog closed...');
+                    //console.log('dialog closed...');
                 });
             }).popup('close');
         }
@@ -134,7 +133,7 @@ var advanceservice = new function() {
         if (bValidation) {
             jqPopupInvitation.one('popupafterclose', function(){
                 commonUI.commonDialog('邀请函申请发送成功', '邀请函申请发送成功, 系统管理员会在处理您的申请后与您联系.', function() {
-                    console.log('dialog closed...');
+                    //console.log('dialog closed...');
                 });
             }).popup('close');
         }
@@ -158,7 +157,7 @@ var advanceservice = new function() {
         if (bValidation) {
             jqPopupApplication.one('popupafterclose', function(){
                 commonUI.commonDialog('申请指导发送成功', '申请指导发送成功, 系统管理员会在处理您的申请后与您联系.', function() {
-                    console.log('dialog closed...');
+                    //console.log('dialog closed...');
                 });
             }).popup('close');
         }

@@ -39,13 +39,11 @@
         
         $('#imgShow_Previous', jqImageShow).on('click', function() {
             var imgidx = $('#imgShowContent > img', jqImageShow).attr('imgidx');
-            console.log('imgShow_Previous clicked...' + imgidx);
             showImg(parseInt(imgidx) - 1, true);
         });
         
         $('#imgShow_Next', jqImageShow).on('click', function() {
             var imgidx = $('#imgShowContent > img', jqImageShow).attr('imgidx');
-            console.log('imgShow_Next clicked...' + imgidx);
             showImg(parseInt(imgidx) + 1, true);
         });
         
@@ -121,7 +119,6 @@
                 jqDiv.append(sHTML);
                 
                 $('img.photothumbnail', jqDiv).on('click', function() {
-                    console.log('llll---' + $(this).attr('imgidx'));
                     showImg($(this).attr('imgidx'));
                 });
             }

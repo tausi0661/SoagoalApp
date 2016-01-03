@@ -3,13 +3,13 @@ var loginpage = new function() {
     var jqPanelMenu = null;
 
     this.init = function() {
-        console.log('loginpage initing.....');
+        logger.debug('loginpage initing.....');
         jqPage = $('body > div#pgLogin');
         jqPanelMenu = $('div#panelMenu');
 
         $('#btn_index_login', jqPage).click(function() {
             var productVal = $('#sel_index_product', jqPage).val();
-            ajaxor.setProduct(productVal);
+            //ajaxor.setProduct(productVal);
             
             var mobile = $('#txt_index_login_username', jqPage).val();
             var password = $('#txt_index_login_password', jqPage).val();

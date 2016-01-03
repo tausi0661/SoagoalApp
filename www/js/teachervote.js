@@ -109,7 +109,6 @@
             }
         });
         
-        console.log(ajaxParam);
         if (allVoted) {
             ajaxor.ajax('vote', ajaxParam,
                 function(oResult) {
