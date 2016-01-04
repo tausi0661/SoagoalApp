@@ -28,46 +28,8 @@ var indexpage = new function() {
         }
     };
     
-    //is invoked from  initFileSystem() in soagoalCommon.js
-    this.profileChecking = function() {
-        console.log('-----profileChecking-------');
-        readFromProfile(function() {
-            console.log('-----begin profileChecking-------');
-            gbl_mdl_ParentLogin = globalProfile;
-            if (gbl_mdl_ParentLogin && gbl_mdl_ParentLogin['Hash']) {
-                console.log('-----begin to ajax-------');
-                ajaxor.ajax('api', 'tim=wang',
-                    function(oResult) {
-                        console.log('-----api ajax done-------');
-                        $.mobile.loading("hide");
-                        
-                        if (oResult.IsSuccessful) {
-                            gbl_mdl_ParentLogin = oResult.ResultObj
-                            initData();
-                            writeToProfile(gbl_mdl_ParentLogin, function() {
-                                console.log('-----writeToProfile callback-------');
-                                $.mobile.changePage("home.html", { transition: "slide" });
-                                console.log('-----changed to home.html -------');
-                            });
-                        } else {
-                            commonUI.commonDialog('登录信息已过期', oResult.Message, function() {
-                                $.mobile.changePage("login.html", { transition: "slide" });
-                            }, true);
-                        }
-                    }, function() {
-                        //ajax error:
-                        $.mobile.changePage("login.html", { transition: "slide" });
-                    }
-                );
-            } else {
-                //no profile found:
-                $.mobile.changePage("login.html", { transition: "slide" });
-            }
-        }, function() {
-            //if there's any error when reading profile:
-            $.mobile.loading("hide");
-            $.mobile.changePage("login.html", { transition: "slide" });
-        });
+    this.initData = function() {
+        initData();
     };
     
     var initData = function() {

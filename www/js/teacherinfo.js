@@ -42,7 +42,7 @@
                 if (oGroupInfo['ScoreEntries'] && oGroupInfo['ScoreEntries'].length > 0) {
                     for (var j = 0; j < oGroupInfo['ScoreEntries'].length; j++) {
                         var oScoreEntry = oGroupInfo['ScoreEntries'][i];
-                        sHTML += '<table><tr><td colspan="4">[成绩单] -陈婉婷2015学年秋季 -单元测验</td></tr><tr>'
+                        sHTML += '<table><tr><td colspan="4">' + oScoreEntry['RTranscriptName'] + '</td></tr><tr>'
                                + '  <th>分数</th><td>' + oScoreEntry['Score'] + '</td>'
                                + '  <th>分层</th><td>' + oScoreEntry['Level'] + '</td>'
                                + '</tr><tr>'

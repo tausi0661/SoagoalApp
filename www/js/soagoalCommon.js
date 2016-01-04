@@ -102,6 +102,14 @@ function initFileSystem() {
             currentMethod = 'gotDirectory';
             console.log('----Directory got');
             
+            //log file:
+            directoryEntry.getFile("logfile.txt", {create: true, exclusive: false}, function(fileEntry) {
+                currentMethod = 'gotLogFileEntry';
+                console.log('----FileEntry got');
+                globalLogFileEntry = fileEntry;
+                fileEntry.createWriter(gotFileWriter, file_io_fail);
+            }, file_io_fail);
+            
             //profile:
             directoryEntry.getFile("profile.txt", {create: true, exclusive: false}, function(fileEntry) {
                 currentMethod = 'gotFileEntry';
@@ -109,16 +117,8 @@ function initFileSystem() {
                 globalProfileFileEntry = fileEntry;
                 
                 //now we can let indexpage.js to read profile and check session:
-                indexpage.profileChecking();
+                profileChecking();
                 
-                fileEntry.createWriter(gotFileWriter, file_io_fail);
-            }, file_io_fail);
-            
-            //log file:
-            directoryEntry.getFile("logfile.txt", {create: true, exclusive: false}, function(fileEntry) {
-                currentMethod = 'gotLogFileEntry';
-                console.log('----FileEntry got');
-                globalLogFileEntry = fileEntry;
                 fileEntry.createWriter(gotFileWriter, file_io_fail);
             }, file_io_fail);
             
@@ -128,6 +128,46 @@ function initFileSystem() {
 
     console.log('--------initFileSystem done----------');
 }
+function profileChecking() {
+    logger.debug('-----profileChecking-------');
+    readFromProfile(function() {
+        logger.debug('-----begin profileChecking-------');
+        gbl_mdl_ParentLogin = globalProfile;
+        if (gbl_mdl_ParentLogin && gbl_mdl_ParentLogin['Hash']) {
+            logger.debug('-----begin to ajax-------');
+            ajaxor.ajax('api', 'tim=wang',
+                function(oResult) {
+                    logger.debug('-----api ajax done-------');
+                    $.mobile.loading("hide");
+                    
+                    if (oResult.IsSuccessful) {
+                        gbl_mdl_ParentLogin = oResult.ResultObj;
+                        indexpage.initData();
+                        writeToProfile(gbl_mdl_ParentLogin, function() {
+                            logger.debug('-----writeToProfile callback-------');
+                            $.mobile.changePage("home.html", { transition: "slide" });
+                            logger.debug('-----changed to home.html -------');
+                        });
+                    } else {
+                        commonUI.commonDialog('登录信息已过期', oResult.Message, function() {
+                            $.mobile.changePage("login.html", { transition: "slide" });
+                        }, true);
+                    }
+                }, function() {
+                    //ajax error:
+                    $.mobile.changePage("login.html", { transition: "slide" });
+                }
+            );
+        } else {
+            //no profile found:
+            $.mobile.changePage("login.html", { transition: "slide" });
+        }
+    }, function() {
+        //if there's any error when reading profile:
+        $.mobile.loading("hide");
+        $.mobile.changePage("login.html", { transition: "slide" });
+    });
+};
 
 function gotFileWriter(writer) {
     currentMethod = 'gotFileWriter';
@@ -380,7 +420,7 @@ var ajaxor = new function() {
                 }
             },
             error: function (xhr, status, errorThrown) {
-                logger.error('errorThrown: ' + errorThrown);
+                logger.error(apiURL + '  errorThrown: ' + errorThrown);
                 commonUI.commonDialog('未知错误', '服务器繁忙, 程序猿加班解决中, 请稍候重试.', function() {
                     if (errorCallback) errorCallback();
                 }, true);

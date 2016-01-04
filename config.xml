@@ -1,7 +1,7 @@
-﻿<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.soagoal.soagoalapp" version="1.0.0">
+﻿<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="org.zsyz.jgb.soagoalapp" version="1.0.1">
   <name>Soagoal家校通-中山一中国际部</name>
   <description>Soagoal家校通-中山一中国际部</description>
-  <author href="http://gjb.zsyz.org/soagoalapp" email="support@phonegap.com">Soagoal Team</author>
+  <author href="http://gjb.zsyz.org/soagoalapp" email="soagoal_gjb@163.com">Soagoal Team</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
