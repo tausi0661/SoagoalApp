@@ -19,24 +19,25 @@
   <preference name="disable-cursor" value="false"/>
   <preference name="android-minSdkVersion" value="7"/>
   <preference name="android-installLocation" value="auto"/>
-  <gap:plugin name="org.apache.cordova.battery-status"/>
-  <gap:plugin name="org.apache.cordova.camera"/>
-  <gap:plugin name="org.apache.cordova.media-capture"/>
-  <gap:plugin name="org.apache.cordova.console"/>
-  <gap:plugin name="org.apache.cordova.contacts"/>
-  <gap:plugin name="org.apache.cordova.device"/>
-  <gap:plugin name="org.apache.cordova.device-motion"/>
-  <gap:plugin name="org.apache.cordova.device-orientation"/>
-  <gap:plugin name="org.apache.cordova.dialogs"/>
-  <gap:plugin name="org.apache.cordova.file"/>
-  <gap:plugin name="org.apache.cordova.file-transfer"/>
-  <gap:plugin name="org.apache.cordova.geolocation"/>
-  <gap:plugin name="org.apache.cordova.globalization"/>
-  <gap:plugin name="org.apache.cordova.inappbrowser"/>
-  <gap:plugin name="org.apache.cordova.media"/>
-  <gap:plugin name="org.apache.cordova.network-information"/>
-  <gap:plugin name="org.apache.cordova.splashscreen"/>
-  <gap:plugin name="org.apache.cordova.vibration"/>
+  <plugin name="org.apache.cordova.battery-status"/>
+  <plugin name="org.apache.cordova.camera"/>
+  <plugin name="org.apache.cordova.media-capture"/>
+  <plugin name="org.apache.cordova.console"/>
+  <plugin name="org.apache.cordova.contacts"/>
+  <plugin name="org.apache.cordova.device"/>
+  <plugin name="org.apache.cordova.device-motion"/>
+  <plugin name="org.apache.cordova.device-orientation"/>
+  <plugin name="org.apache.cordova.dialogs"/>
+  <plugin name="org.apache.cordova.file"/>
+  <plugin name="org.apache.cordova.file-transfer"/>
+  <plugin name="org.apache.cordova.geolocation"/>
+  <plugin name="org.apache.cordova.globalization"/>
+  <plugin name="org.apache.cordova.inappbrowser"/>
+  <plugin name="org.apache.cordova.media"/>
+  <plugin name="org.apache.cordova.network-information"/>
+  <plugin name="org.apache.cordova.splashscreen"/>
+  <plugin name="org.apache.cordova.vibration"/>
+  <plugin name="com.indigoway.cordova.whitelist.whitelistplugin"/>
   <icon src="icon.png"/>
   <icon src="res/icon/applogoicons/36.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="res/icon/applogoicons/48.png" gap:platform="android" gap:qualifier="mdpi"/>
@@ -62,14 +63,11 @@
   <gap:splash src="res/screen/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1024"/>
   <gap:splash src="res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
-  <access origin="http://192.168.*"/>
-  <access origin="http://*.soagoal.com*" subdomains="true"/>
-  <plugin name="cordova-plugin-whitelist" version="1"/>
-  <allow-intent href="http://*/*"/>
-  <allow-intent href="https://*/*"/>
-  <allow-intent href="geo:*"/>
+  <access origin="*"/>
+  <allow-intent href="*"/>
   <platform name="android">
     <allow-intent href="market:*"/>
+    <allow-intent href="*"/>
   </platform>
   <platform name="ios">
     <allow-intent href="itms:*"/>
