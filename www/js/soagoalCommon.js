@@ -244,9 +244,9 @@ var logger = new function() {
     this.debug = function(msg) {
         currentMethod = 'logger.debug';
         
-        console.log(msg);
+        //console.log(msg);
         
-        writeToLogFile(msg);
+        //writeToLogFile(msg);
     }
     
     this.error = function(msg) {
