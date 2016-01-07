@@ -24,7 +24,11 @@ var indexpage = new function() {
             //nothing to do
         } else {
             logger.debug('=====is phone 000 =====');
-            setTimeout('$.mobile.loading("hide"); $.mobile.changePage("login.html", { transition: "slide" });', 5000);
+            if (gbl_mdl_ParentLogin && gbl_mdl_ParentLogin['ParentID'] > 0) {
+                setTimeout('indexpage.initData();$.mobile.changePage("home.html", { transition: "slide" });', 1000);
+            } else {
+                setTimeout('$.mobile.loading("hide"); $.mobile.changePage("login.html", { transition: "slide" });', 5000);
+            }
         }
     };
     
@@ -42,6 +46,11 @@ var indexpage = new function() {
     };
 
     var handlePanelMessagerSubmit = function() {
+        if (gbl_mdl_ParentLogin['IsFromPreview']) {
+            commonUI.commonDialog('注意!', '此处是App的预览页面, 请不要执行此操作!');
+            return false;
+        }
+        
         commonUI.loading();
         commonUI.clearFormError(jqPanelMessager);
 

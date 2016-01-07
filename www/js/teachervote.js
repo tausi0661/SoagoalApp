@@ -86,6 +86,11 @@
     
     var ddd = true;
     var submitVote = function() {
+        if (gbl_mdl_ParentLogin['IsFromPreview']) {
+            commonUI.commonDialog('注意!', '此处是App的预览页面, 请不要执行此操作!');
+            return false;
+        }
+        
         var allVoted = true;
         var ajaxParam = {};
         jqTeacherVoteItems.children('ul.ul_teachervote_items').each(function() {

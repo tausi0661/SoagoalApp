@@ -126,7 +126,12 @@ var schoolinfo = new function() {
     };
 
     var handleTeacherMessagerSubmit = function() {
-
+        
+        if (gbl_mdl_ParentLogin['IsFromPreview']) {
+            commonUI.commonDialog('注意!', '此处是App的预览页面, 请不要执行此操作!');
+            return false;
+        }
+        
         commonUI.loading();
         commonUI.clearFormError(jqTeacherMessager);
 
