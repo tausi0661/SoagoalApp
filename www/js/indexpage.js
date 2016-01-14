@@ -41,7 +41,7 @@ var indexpage = new function() {
             $('#img_panelMenu_avatar', jqPanelMenu).attr('src', commonUtil.smallPic(gbl_mdl_ParentLogin['PhotoURL']));
             $('#span_panelMenu_studentname', jqPanelMenu).html(gbl_mdl_ParentLogin['RStudentName']);
             
-            //$('#sel_messager_object').empty().append('<option value="">请选择留言对象</option>' + gbl_mdl_ParentLogin['MsgReceiverHTML']).selectmenu('refresh', true);
+            $('#sel_messager_object').empty().append('<option value="">请选择留言对象</option>' + gbl_mdl_ParentLogin['MsgReceiverHTML']).selectmenu('refresh', true);
         }
     };
 
