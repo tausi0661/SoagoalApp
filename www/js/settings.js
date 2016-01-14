@@ -8,6 +8,10 @@
         $('#btn_changepassword_submit', jqPage).on('click', changepasswordSubmit);
         $('#btn_logout_submit', jqPage).on('click', logout);
         $('#btn_checkupdate_submit', jqPage).on('click', checkUpdate);
+        
+        if (gbl_mobile_platform == 'iOS') {
+            $('#div_settings_updatechecking', jqPage).hide();
+        }
     };
     
     this.beforeshow = function() {
