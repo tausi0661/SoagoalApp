@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="org.zsyz.gjb.soagoalapp" version="1.0.1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="org.zsyz.gjb.soagoalapp" version="1.0.1" android-versionCode="2" ios-CFBundleVersion="1.0.2">
   <name>Soagoal家校通-中山一中国际部</name>
   <description>Soagoal家校通-中山一中国际部</description>
   <author href="http://gjb.zsyz.org/soagoalapp" email="soagoal_gjb@163.com">Soagoal Team</author>
